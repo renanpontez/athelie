@@ -1,9 +1,19 @@
 import Image from "next/image";
 import { CTA } from "@/components/ui/CTA";
 import { DimensionLabel } from "@/components/ui/DimensionLabel";
-import { studio, heroFeature } from "@/lib/content";
+import { studio, heroFeature as defaultFeature } from "@/lib/content";
 
-export function Hero() {
+type Feature = {
+  image: string;
+  imageAlt: string;
+  projectName: string;
+  projectCity: string;
+  projectCategory: string;
+  projectYear: number;
+};
+
+export function Hero({ feature }: { feature?: Feature } = {}) {
+  const heroFeature = feature ?? defaultFeature;
   return (
     <section className="hero relative min-h-[100svh] overflow-hidden">
       {/* full-bleed background image */}
