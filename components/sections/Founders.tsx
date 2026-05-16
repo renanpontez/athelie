@@ -12,13 +12,16 @@ export function Founders() {
       <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-12 items-start">
         <div className="md:col-span-5 fade-up">
           <div className="portrait arch-top relative overflow-hidden bg-bone-2 aspect-[4/5]">
-            <Image
-              src={foundersPortrait.src}
-              alt={foundersPortrait.alt}
-              fill
-              sizes="(min-width: 768px) 35vw, 90vw"
-              className="object-cover"
-            />
+            {/* image sits in the lower 78% so the arch curves over breathing room above the heads */}
+            <div className="absolute inset-x-0 bottom-0 h-[78%]">
+              <Image
+                src={foundersPortrait.src}
+                alt={foundersPortrait.alt}
+                fill
+                sizes="(min-width: 768px) 35vw, 90vw"
+                className="object-cover object-top"
+              />
+            </div>
           </div>
           <div className="mt-4 flex justify-between font-mono-label text-stone">
             <span>Andressa Hora</span>

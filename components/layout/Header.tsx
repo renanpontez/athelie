@@ -1,16 +1,35 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 import { ArchIcon } from "@/components/ui/ArchIcon";
 import { MobileMenu } from "./MobileMenu";
 import { navigation, studio } from "@/lib/content";
 
 export function Header() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="fixed inset-x-0 top-0 z-40">
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-40 transition-[background-color,backdrop-filter,box-shadow] duration-500",
+        scrolled &&
+          "bg-bone/70 backdrop-blur-md shadow-[0_1px_0_0_rgba(163,158,148,0.25)]"
+      )}
+    >
       <div className="container-edge">
         <div className="flex items-center justify-between py-5 md:py-6">
           <Link
             href="/"
-            className="group flex items-center gap-3"
+            className="nav-reveal group flex items-center gap-3"
             aria-label={studio.name}
           >
             <ArchIcon className="h-7 w-auto text-ink transition-transform duration-700 group-hover:-translate-y-0.5" />
@@ -27,7 +46,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="pretty-link font-mono-label text-ink"
+                className="nav-reveal pretty-link font-mono-label text-ink"
               >
                 {item.label}
               </Link>
@@ -38,7 +57,7 @@ export function Header() {
             href={studio.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-2 rounded-full border border-ink/15 px-4 py-2 font-mono-label text-ink transition-colors duration-500 hover:border-ink hover:bg-ink hover:text-bone"
+            className="nav-reveal hidden md:inline-flex items-center gap-2 rounded-full border border-ink/15 px-4 py-2 font-mono-label text-ink transition-colors duration-500 hover:border-ink hover:bg-ink hover:text-bone"
           >
             Conversar
             <svg

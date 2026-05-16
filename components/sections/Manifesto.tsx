@@ -1,30 +1,42 @@
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Hairline } from "@/components/ui/Hairline";
+import { cn } from "@/lib/utils";
+
+const segments: { text: string; italic?: boolean }[] = [
+  { text: "Cada projeto é uma oportunidade de" },
+  { text: "contar uma história única", italic: true },
+  { text: "— unindo estética, funcionalidade e conforto em ambientes feitos para durar." },
+];
 
 export function Manifesto() {
+  let wordIndex = 0;
   return (
-    <section className="container-edge py-32 md:py-48 reveal-on-scroll">
+    <section className="container-edge pt-32 md:pt-48 pb-12 md:pb-20 manifesto-section">
       <SectionLabel ordinal="01" label="Manifesto" />
       <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-        <div className="md:col-span-2 hidden md:block">
+        <div className="md:col-span-2 hidden md:block pt-6">
           <Hairline reveal />
         </div>
-        <p className="md:col-span-10 font-display text-[clamp(1.75rem,4.4vw,3.5rem)] leading-[1.15] text-ink max-w-[22ch]">
-          <span className="reveal-word">
-            <span>Cada projeto é</span>
-          </span>{" "}
-          <span className="reveal-word">
-            <span>uma oportunidade</span>
-          </span>{" "}
-          <span className="reveal-word">
-            <span>de</span>
-          </span>{" "}
-          <span className="reveal-word italic text-sage-dark">
-            <span>contar uma história única</span>
-          </span>{" "}
-          <span className="reveal-word">
-            <span>e deixar uma marca duradoura.</span>
-          </span>
+        <p className="md:col-span-10 font-display text-[clamp(1.75rem,4.4vw,3.5rem)] leading-[1.2] text-ink max-w-[36ch]">
+          {segments.map((seg, segIdx) => {
+            const words = seg.text.split(" ");
+            return (
+              <span key={segIdx} className={cn(seg.italic && "italic text-sage-dark")}>
+                {words.map((word) => {
+                  wordIndex += 1;
+                  return (
+                    <span
+                      key={`${segIdx}-${wordIndex}`}
+                      className="manifesto-word inline-block opacity-30"
+                    >
+                      {word}
+                      {" "}
+                    </span>
+                  );
+                })}
+              </span>
+            );
+          })}
         </p>
       </div>
     </section>
