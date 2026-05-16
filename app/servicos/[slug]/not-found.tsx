@@ -10,7 +10,7 @@ export default function NotFound() {
         Esse serviço não foi <span className="italic text-sage-dark">encontrado</span>.
       </h1>
       <p className="mt-8 max-w-md text-ink-2">
-        Conheça as três formas de trabalhar com a gente — Consultoria,
+        Conheça as três formas de trabalhar com a gente: Consultoria,
         Projeto Completo ou Execução.
       </p>
       <div className="mt-10 flex flex-wrap items-center gap-4">

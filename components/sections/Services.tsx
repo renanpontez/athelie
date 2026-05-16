@@ -22,8 +22,8 @@ export function Services() {
             </h2>
           </div>
           <p className="max-w-sm text-ink-2 fade-up">
-            Da consultoria pontual ao acompanhamento integral de obra —
-            escolhemos juntos o formato que melhor se adapta ao seu projeto.
+            Da consultoria pontual ao acompanhamento integral de obra.
+            Escolhemos juntos o formato que melhor se adapta ao seu projeto.
           </p>
         </div>
 

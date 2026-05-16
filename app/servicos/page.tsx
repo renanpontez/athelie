@@ -8,7 +8,7 @@ import { DimensionLabel } from "@/components/ui/DimensionLabel";
 import { services, studio } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Serviços — Atheliê Arquitetura",
+  title: "Serviços · Atheliê Arquitetura",
   description:
     "Três formas de trabalhar com a Atheliê: Consultoria, Projeto Completo e Execução. Escolha o formato que melhor se adapta ao seu projeto.",
 };
@@ -31,8 +31,8 @@ export default function ServicosPage() {
           <span className="italic text-sage-dark">juntos</span>.
         </h1>
         <p className="mt-10 max-w-md text-ink-2">
-          Da consultoria pontual ao acompanhamento integral de obra —
-          escolhemos juntos o formato que melhor se adapta à escala do seu
+          Da consultoria pontual ao acompanhamento integral de obra.
+          Escolhemos juntos o formato que melhor se adapta à escala do seu
           projeto, ao seu prazo e ao seu orçamento.
         </p>
       </section>

@@ -64,7 +64,7 @@ export function Hero() {
 
             <p className="mt-10 max-w-md text-base md:text-lg text-ink-2 fade-up">
               Projetos residenciais, comerciais e corporativos pensados nos
-              detalhes — equilibrando estética, funcionalidade e conforto em
+              detalhes, equilibrando estética, funcionalidade e conforto em
               ambientes feitos para durar.
             </p>
 

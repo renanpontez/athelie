@@ -11,7 +11,7 @@ import {
 } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Projetos — Atheliê Arquitetura",
+  title: "Projetos · Atheliê Arquitetura",
   description:
     "Portfólio de projetos residenciais, comerciais e corporativos do estúdio Atheliê Arquitetura.",
 };

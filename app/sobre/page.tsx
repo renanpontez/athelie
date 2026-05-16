@@ -15,7 +15,7 @@ import {
 } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Sobre — Atheliê Arquitetura",
+  title: "Sobre · Atheliê Arquitetura",
   description:
     "Conheça a Atheliê Arquitetura. Estúdio fundado por Andressa e Tainah Hora, dedicado a projetos de arquitetura de interiores que unem estética, funcionalidade e conforto.",
 };
@@ -39,7 +39,7 @@ export default function SobrePage() {
           <span className="italic text-sage-dark">duas vozes</span>.
         </h1>
         <p className="mt-10 max-w-xl text-lg md:text-xl text-ink-2">
-          A Atheliê nasceu da união entre Andressa e Tainah Hora — duas
+          A Atheliê nasceu da união entre Andressa e Tainah Hora. Duas
           arquitetas com talentos complementares que se encontraram no amor
           pela arquitetura de interiores e pela ideia de transformar espaços
           em lugares com história.
@@ -66,9 +66,8 @@ export default function SobrePage() {
               <span className="manifesto-word inline-block opacity-30">contar </span>
               <span className="manifesto-word inline-block opacity-30">uma </span>
               <span className="manifesto-word inline-block opacity-30">história </span>
-              <span className="manifesto-word inline-block opacity-30">única </span>
+              <span className="manifesto-word inline-block opacity-30">única, </span>
             </span>
-            <span className="manifesto-word inline-block opacity-30">— </span>
             <span className="manifesto-word inline-block opacity-30">unindo </span>
             <span className="manifesto-word inline-block opacity-30">estética, </span>
             <span className="manifesto-word inline-block opacity-30">funcionalidade </span>

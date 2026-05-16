@@ -1,7 +1,7 @@
 type Props = {
   ordinal: string;
   label: string;
-  /** kept for API compatibility — no longer rendered */
+  /** kept for API compatibility, no longer rendered */
   total?: string;
 };
 

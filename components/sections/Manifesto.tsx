@@ -4,8 +4,8 @@ import { cn } from "@/lib/utils";
 
 const segments: { text: string; italic?: boolean }[] = [
   { text: "Cada projeto é uma oportunidade de" },
-  { text: "contar uma história única", italic: true },
-  { text: "— unindo estética, funcionalidade e conforto em ambientes feitos para durar." },
+  { text: "contar uma história única,", italic: true },
+  { text: "unindo estética, funcionalidade e conforto em ambientes feitos para durar." },
 ];
 
 export function Manifesto() {

@@ -6,12 +6,12 @@ import { SiteAnimations } from "@/components/SiteAnimations";
 
 export const metadata: Metadata = {
   title:
-    "Atheliê Arquitetura — Arquitetura de interiores que conta histórias",
+    "Atheliê Arquitetura · Arquitetura de interiores que conta histórias",
   description:
     "Estúdio de arquitetura de interiores fundado por Andressa e Tainah Hora. Projetos residenciais, comerciais e corporativos com estética, funcionalidade e conforto.",
   openGraph: {
     title:
-      "Atheliê Arquitetura — Arquitetura de interiores que conta histórias",
+      "Atheliê Arquitetura · Arquitetura de interiores que conta histórias",
     description:
       "Estúdio de arquitetura de interiores fundado por Andressa e Tainah Hora.",
     type: "website",

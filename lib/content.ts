@@ -50,7 +50,7 @@ export const studio = {
   shortName: "Atheliê",
   tagline: "Arquitetura que conta a sua história.",
   manifesto:
-    "Acreditamos que cada projeto é uma oportunidade de contar uma história única — unindo estética, funcionalidade e conforto em ambientes feitos para durar.",
+    "Acreditamos que cada projeto é uma oportunidade de contar uma história única, unindo estética, funcionalidade e conforto em ambientes feitos para durar.",
   cities: ["Fortaleza", "São Paulo", "Alphaville"],
   phone: "(85) 9.9145-5979",
   phoneHref: "tel:+5585991455979",
@@ -70,7 +70,7 @@ export const navigation = [
 
 export const heroFeature = {
   image: unsplash("1497366811353-6870744d04b2", 2000),
-  imageAlt: "Escritório corporativo PWR — São Paulo, com madeira clara e iluminação difusa",
+  imageAlt: "Escritório corporativo PWR em São Paulo, com madeira clara e iluminação difusa",
   projectName: "Escritório PWR",
   projectCity: "São Paulo · SP",
   projectCategory: "corporativo",
@@ -89,7 +89,7 @@ export const projects: Project[] = [
     area: "180m²",
     scope: ["Projeto Completo", "Execução"],
     summary:
-      "Um lar à beira-mar pensado para abraçar a paisagem — paleta neutra, curvas suaves e materiais que envelhecem bem.",
+      "Um lar à beira-mar pensado para abraçar a paisagem: paleta neutra, curvas suaves e materiais que envelhecem bem.",
     description:
       "Reforma completa de um apartamento à beira-mar, projetado para integrar a vista da janela à atmosfera dos ambientes. Optamos por uma paleta de areia, marfim e madeira clara, com mobiliário curvo que dialoga com a linha do horizonte. Todos os ambientes sociais foram desenhados para receber família e amigos sem perder a sensação de refúgio.",
     gallery: [
@@ -110,7 +110,7 @@ export const projects: Project[] = [
     area: "320m²",
     scope: ["Projeto Completo", "Acompanhamento de Obra"],
     summary:
-      "Escritório corporativo que equilibra produtividade e identidade — madeira clara, vidro e zonas de descompressão.",
+      "Escritório corporativo que equilibra produtividade e identidade: madeira clara, vidro e zonas de descompressão.",
     description:
       "Projeto de uma sede corporativa em São Paulo, com áreas abertas de trabalho, salas de reunião acústicas e copa-lounge para integração do time. A identidade do escritório foi traduzida em uma paleta sóbria com pontos de cor controlados, mobiliário modular e iluminação difusa de baixa temperatura.",
     gallery: [
@@ -132,7 +132,7 @@ export const projects: Project[] = [
     summary:
       "Um consultório acolhedor que reflete a presença e a marca pessoal da profissional.",
     description:
-      "Projeto de consultório clínico em Fortaleza, desenhado para acolher pacientes em um ambiente sereno e elegante. A paleta combina tons quentes de areia, madeira e cortinas leves que filtram a luz. Cada detalhe — do mobiliário à iluminação — foi escolhido para reforçar a marca pessoal e a tranquilidade do atendimento.",
+      "Projeto de consultório clínico em Fortaleza, desenhado para acolher pacientes em um ambiente sereno e elegante. A paleta combina tons quentes de areia, madeira e cortinas leves que filtram a luz. Cada detalhe, do mobiliário à iluminação, foi escolhido para reforçar a marca pessoal e a tranquilidade do atendimento.",
     gallery: [
       { src: unsplash("1604014237800-1c9102c219da"), alt: "Recepção do consultório" },
       { src: unsplash("1611892440504-42a792e24d32"), alt: "Sala de atendimento" },
@@ -149,7 +149,7 @@ export const projects: Project[] = [
     area: "95m²",
     scope: ["Projeto Completo"],
     summary:
-      "Varejo com identidade — prateleiras curvas, paleta quente e jornada de cliente cuidadosamente coreografada.",
+      "Varejo com identidade: prateleiras curvas, paleta quente e jornada de cliente cuidadosamente coreografada.",
     description:
       "Projeto comercial para a Aviarte, em São Paulo. A loja foi pensada como uma sequência de cenas curatoriais: arcos e curvas guiam o olhar pelas vitrines, enquanto a iluminação focal valoriza cada peça em exposição. A paleta quente reforça a sensação de hospitalidade.",
     gallery: [
@@ -250,7 +250,7 @@ export const services: Service[] = [
     name: "Consultoria",
     tagline: "Para quem quer mudar o essencial.",
     description:
-      "Avaliação técnica e visual do ambiente com soluções profissionais para funcionalidade e design — sem um projeto detalhado.",
+      "Avaliação técnica e visual do ambiente com soluções profissionais para funcionalidade e design, sem um projeto detalhado.",
     duration: "2 a 3 semanas",
     forWho: [
       "Você quer ajustes pontuais sem fazer uma reforma completa.",
@@ -317,7 +317,7 @@ export const services: Service[] = [
       },
       {
         title: "Atmosfera com intenção",
-        description: "Andressa cuida da atmosfera — luz, materialidade, gestos — para que o espaço conte uma história.",
+        description: "Andressa cuida da atmosfera (luz, materialidade, gestos) para que o espaço conte uma história.",
       },
     ],
     faq: [
@@ -369,7 +369,7 @@ export const services: Service[] = [
     differentiators: [
       {
         title: "Transparência financeira",
-        description: "Você acompanha cada compra e cada serviço — sem surpresas no fechamento.",
+        description: "Você acompanha cada compra e cada serviço, sem surpresas no fechamento.",
       },
       {
         title: "Curadoria de fornecedores",
@@ -395,7 +395,7 @@ export const pillars: Pillar[] = [
     ordinal: "01",
     name: "Conforto",
     description:
-      "Cada decisão — escala, luz, materialidade — é tomada para que o ambiente abrace quem o vive.",
+      "Cada decisão (escala, luz, materialidade) é tomada para que o ambiente abrace quem o vive.",
   },
   {
     ordinal: "02",
@@ -415,7 +415,7 @@ export const founders: Founder[] = [
   {
     name: "Andressa Hora",
     role: "Co-fundadora · Criação",
-    bio: "Pós-graduada em Design de Interiores pelo IED. Traz delicadeza, leveza e espontaneidade para cada projeto — sempre envolvida na área criativa.",
+    bio: "Pós-graduada em Design de Interiores pelo IED. Traz delicadeza, leveza e espontaneidade para cada projeto, sempre envolvida na área criativa.",
   },
   {
     name: "Tainah Hora",
@@ -446,7 +446,7 @@ export const processSteps = [
     ordinal: "03",
     name: "Projeto",
     description:
-      "Anteprojeto, executivo, detalhamento e especificações — tudo pronto para a obra.",
+      "Anteprojeto, executivo, detalhamento e especificações. Tudo pronto para a obra.",
   },
   {
     ordinal: "04",

@@ -7,9 +7,9 @@ import { ContactForm } from "@/components/sections/ContactForm";
 import { studio } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Contato — Atheliê Arquitetura",
+  title: "Contato · Atheliê Arquitetura",
   description:
-    "Vamos conversar. Conte sobre o seu espaço — respondemos em até um dia útil.",
+    "Vamos conversar. Conte sobre o seu espaço. Respondemos em até um dia útil.",
 };
 
 export default function ContatoPage() {
@@ -31,7 +31,7 @@ export default function ContatoPage() {
         </h1>
         <p className="mt-10 max-w-xl text-lg md:text-xl text-ink-2">
           Estamos prontas para ouvir suas ideias, desenhar projetos e
-          realizar sonhos. Conte sobre o seu espaço — escolha o canal que
+          realizar sonhos. Conte sobre o seu espaço. Escolha o canal que
           for mais confortável para você.
         </p>
       </section>
@@ -121,7 +121,7 @@ export default function ContatoPage() {
               </h2>
               <p className="mt-6 text-ink-2 max-w-sm fade-up">
                 O formulário abaixo monta uma mensagem completa para a
-                gente — você revisa antes de enviar pelo WhatsApp.
+                gente. Você revisa antes de enviar pelo WhatsApp.
               </p>
 
               <Hairline className="mt-10 mb-6" />
