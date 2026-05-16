@@ -39,7 +39,7 @@ export function Hero() {
         <div className="flex items-center justify-end pb-12 md:pb-16">
           <DimensionLabel
             label="Fortaleza · São Paulo · Alphaville"
-            className="hidden md:inline-flex"
+            className="hidden md:inline-flex !text-ink-2"
           />
         </div>
 
@@ -86,10 +86,10 @@ export function Hero() {
                 <span>Projeto em destaque</span>
               </div>
 
-              <div className="inline-flex items-center gap-3 rounded-full bg-bone/95 backdrop-blur-md px-4 py-2 font-mono-label shadow-soft ring-1 ring-bone">
+              <div className="inline-flex items-center gap-3 rounded-full bg-bone/60 backdrop-blur-md px-4 py-2 font-mono-label shadow-soft ring-1 ring-bone/40">
                 <span className="block h-1.5 w-1.5 rounded-full bg-sage-dark" />
                 <span className="text-ink">{heroFeature.projectName}</span>
-                <span className="text-stone">
+                <span className="text-ink-2/80">
                   · {heroFeature.projectCity}
                 </span>
               </div>
