@@ -42,7 +42,7 @@ export default function ContatoPage() {
         <div className="mt-10">
           <Hairline reveal />
         </div>
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-px bg-stone/30">
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-px bg-stone/30">
           {[
             {
               label: "WhatsApp",
