@@ -81,12 +81,12 @@ export function Hero() {
           {/* right column: floating "projeto em destaque" pill over image */}
           <div className="md:col-span-5 relative md:min-h-[55svh]">
             <div className="md:absolute md:bottom-0 md:right-0 flex flex-col items-start md:items-end gap-3 fade-up">
-              <div className="font-mono-label text-stone flex items-center gap-2">
-                <span className="h-px w-6 bg-stone/60" />
+              <div className="font-mono-label text-ink flex items-center gap-2">
+                <span className="h-px w-6 bg-ink/40" />
                 <span>Projeto em destaque</span>
               </div>
 
-              <div className="inline-flex items-center gap-3 rounded-full bg-bone/85 backdrop-blur-md px-4 py-2 font-mono-label shadow-soft">
+              <div className="inline-flex items-center gap-3 rounded-full bg-bone/95 backdrop-blur-md px-4 py-2 font-mono-label shadow-soft ring-1 ring-bone">
                 <span className="block h-1.5 w-1.5 rounded-full bg-sage-dark" />
                 <span className="text-ink">{heroFeature.projectName}</span>
                 <span className="text-stone">
