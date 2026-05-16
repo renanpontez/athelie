@@ -4,8 +4,6 @@ import { DimensionLabel } from "@/components/ui/DimensionLabel";
 import { studio, heroFeature } from "@/lib/content";
 
 export function Hero() {
-  const year = new Date().getFullYear();
-
   return (
     <section className="hero relative min-h-[100svh] overflow-hidden">
       {/* full-bleed background image */}
@@ -31,15 +29,14 @@ export function Hero() {
           }}
         />
 
-        {/* soft top + bottom vignette for legibility of header + scroll cue */}
+        {/* soft top + bottom vignette for header legibility */}
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-bone/80 to-transparent pointer-events-none" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-bone/70 to-transparent pointer-events-none" />
       </div>
 
       {/* foreground content */}
       <div className="relative z-10 pt-32 md:pt-40 container-edge">
-        <div className="flex items-center justify-between pb-12 md:pb-16">
-          <DimensionLabel label={`${String(year).slice(-2)} · est. 2021`} />
+        <div className="flex items-center justify-end pb-12 md:pb-16">
           <DimensionLabel
             label="Fortaleza · São Paulo · Alphaville"
             className="hidden md:inline-flex"
@@ -79,16 +76,9 @@ export function Hero() {
                 Fazer briefing
               </CTA>
             </div>
-
-            <div className="mt-16 flex items-center gap-8 fade-up">
-              <div className="h-px w-12 bg-stone/60" />
-              <div className="font-mono-label text-stone">
-                Scroll <span className="text-ink ml-2">↓</span>
-              </div>
-            </div>
           </div>
 
-          {/* right column: floating "projeto em destaque" meta over image */}
+          {/* right column: floating "projeto em destaque" pill over image */}
           <div className="md:col-span-5 relative md:min-h-[55svh]">
             <div className="md:absolute md:bottom-0 md:right-0 flex flex-col items-start md:items-end gap-3 fade-up">
               <div className="font-mono-label text-stone flex items-center gap-2">
@@ -102,10 +92,6 @@ export function Hero() {
                 <span className="text-stone">
                   · {heroFeature.projectCity}
                 </span>
-              </div>
-
-              <div className="font-mono-label text-stone md:text-right">
-                {heroFeature.projectCategory} · {heroFeature.projectYear}
               </div>
             </div>
           </div>

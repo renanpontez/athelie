@@ -65,22 +65,7 @@ export default function ServicosPage() {
                   <p className="mt-2 italic text-sage-dark">{s.tagline}</p>
                 </div>
 
-                <dl className="grid grid-cols-2 gap-4 font-mono-label border-t border-stone/30 pt-4 mt-auto">
-                  {s.duration && (
-                    <div className="col-span-2">
-                      <dt className="text-stone">Prazo</dt>
-                      <dd className="mt-1 text-ink">{s.duration}</dd>
-                    </div>
-                  )}
-                  {s.includes && (
-                    <div className="col-span-2">
-                      <dt className="text-stone">Inclui</dt>
-                      <dd className="mt-1 text-ink">
-                        {s.includes.length} entregáveis
-                      </dd>
-                    </div>
-                  )}
-                </dl>
+                <div className="mt-auto pt-4 border-t border-stone/30" />
 
                 <Link
                   href={`/servicos/${s.slug}`}

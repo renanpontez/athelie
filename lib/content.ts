@@ -69,11 +69,11 @@ export const navigation = [
 ];
 
 export const heroFeature = {
-  image: unsplash("1600210491892-03d54c0aaf87", 2000),
-  imageAlt: "Sala de estar contemporânea com paleta neutra, sofá curvo e luz natural",
-  projectName: "Apartamento Beira Mar",
-  projectCity: "Fortaleza · CE",
-  projectCategory: "residencial",
+  image: unsplash("1497366811353-6870744d04b2", 2000),
+  imageAlt: "Escritório corporativo PWR — São Paulo, com madeira clara e iluminação difusa",
+  projectName: "Escritório PWR",
+  projectCity: "São Paulo · SP",
+  projectCategory: "corporativo",
   projectYear: 2024,
 };
 

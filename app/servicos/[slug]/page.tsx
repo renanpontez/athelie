@@ -87,31 +87,6 @@ export default async function ServiceDetailPage({ params }: Props) {
 
           <div className="md:col-span-4">
             <ArchIcon className="h-20 w-auto text-sage-dark/40" />
-            <Hairline className="my-6" />
-            <dl className="space-y-4 font-mono-label">
-              {service.duration && (
-                <div>
-                  <dt className="text-stone">Duração</dt>
-                  <dd className="mt-1 text-ink">{service.duration}</dd>
-                </div>
-              )}
-              {service.includes && (
-                <div>
-                  <dt className="text-stone">Entregáveis</dt>
-                  <dd className="mt-1 text-ink">
-                    {service.includes.length} itens
-                  </dd>
-                </div>
-              )}
-              {service.steps && (
-                <div>
-                  <dt className="text-stone">Etapas</dt>
-                  <dd className="mt-1 text-ink">
-                    {service.steps.length} fases
-                  </dd>
-                </div>
-              )}
-            </dl>
           </div>
         </div>
       </section>
