@@ -1,0 +1,797 @@
+[
+  {
+    "_createdAt": "2026-05-17T00:07:38Z",
+    "_id": "siteSettings",
+    "_rev": "xmpmvb797NS7wYP93dTWcT",
+    "_type": "siteSettings",
+    "_updatedAt": "2026-05-17T00:07:38Z",
+    "cities": [
+      "Fortaleza",
+      "São Paulo",
+      "Alphaville"
+    ],
+    "email": "atheliearquitetura@gmail.com",
+    "instagram": "https://instagram.com/ath.elie",
+    "instagramHandle": "@ath.elie",
+    "manifesto": "Acreditamos que cada projeto é uma oportunidade de contar uma história única, unindo estética, funcionalidade e conforto em ambientes feitos para durar.",
+    "name": "Atheliê Arquitetura",
+    "phone": "(85) 9.9145-5979",
+    "phoneHref": "tel:+5585991455979",
+    "shortName": "Atheliê",
+    "tagline": "Arquitetura que conta a sua história.",
+    "whatsapp": "https://wa.me/message/CNLSM24A456OM1"
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:40Z",
+    "_id": "navigation",
+    "_rev": "xmpmvb797NS7wYP93dTWfB",
+    "_type": "navigation",
+    "_updatedAt": "2026-05-17T00:07:40Z",
+    "footer": [
+      {
+        "_key": "f-/",
+        "_type": "navLink",
+        "href": "/",
+        "label": "Início"
+      },
+      {
+        "_key": "f-/sobre",
+        "_type": "navLink",
+        "href": "/sobre",
+        "label": "Sobre"
+      },
+      {
+        "_key": "f-/servicos",
+        "_type": "navLink",
+        "href": "/servicos",
+        "label": "Serviços"
+      },
+      {
+        "_key": "f-/projetos",
+        "_type": "navLink",
+        "href": "/projetos",
+        "label": "Projetos"
+      },
+      {
+        "_key": "f-/contato",
+        "_type": "navLink",
+        "href": "/contato",
+        "label": "Contato"
+      }
+    ],
+    "primary": [
+      {
+        "_key": "/",
+        "_type": "navLink",
+        "href": "/",
+        "label": "Início"
+      },
+      {
+        "_key": "/sobre",
+        "_type": "navLink",
+        "href": "/sobre",
+        "label": "Sobre"
+      },
+      {
+        "_key": "/servicos",
+        "_type": "navLink",
+        "href": "/servicos",
+        "label": "Serviços"
+      },
+      {
+        "_key": "/projetos",
+        "_type": "navLink",
+        "href": "/projetos",
+        "label": "Projetos"
+      },
+      {
+        "_key": "/contato",
+        "_type": "navLink",
+        "href": "/contato",
+        "label": "Contato"
+      }
+    ]
+  },
+  {
+    "_createdAt": "2026-05-17T00:08:01Z",
+    "_id": "page.home",
+    "_rev": "M3JKi7ySD786zFRPXP4dlH",
+    "_type": "page",
+    "_updatedAt": "2026-05-17T00:08:01Z",
+    "sections": [
+      {
+        "_key": "hero",
+        "_type": "heroSection",
+        "body": "Projetos residenciais, comerciais e corporativos pensados nos detalhes, equilibrando estética, funcionalidade e conforto em ambientes feitos para durar.",
+        "eyebrow": "Estúdio de arquitetura de interiores",
+        "featuredProject": {
+          "_ref": "project.escritorio-pwr",
+          "_type": "reference"
+        }
+      },
+      {
+        "_key": "manifesto",
+        "_type": "manifestoSection",
+        "label": "Manifesto",
+        "ordinal": "01"
+      },
+      {
+        "_key": "projects",
+        "_type": "featuredProjectsSection",
+        "label": "Projetos selecionados",
+        "ordinal": "02",
+        "projects": [
+          {
+            "_key": "p-0",
+            "_ref": "project.apartamento-beira-mar",
+            "_type": "reference"
+          },
+          {
+            "_key": "p-1",
+            "_ref": "project.escritorio-pwr",
+            "_type": "reference"
+          },
+          {
+            "_key": "p-2",
+            "_ref": "project.consultorio-rafaela-holanda",
+            "_type": "reference"
+          },
+          {
+            "_key": "p-3",
+            "_ref": "project.aviarte-sp",
+            "_type": "reference"
+          }
+        ]
+      },
+      {
+        "_key": "services",
+        "_type": "servicesSection",
+        "label": "Serviços",
+        "ordinal": "03",
+        "services": [
+          {
+            "_key": "s-0",
+            "_ref": "service.consultoria",
+            "_type": "reference"
+          },
+          {
+            "_key": "s-1",
+            "_ref": "service.projeto-completo",
+            "_type": "reference"
+          },
+          {
+            "_key": "s-2",
+            "_ref": "service.execucao",
+            "_type": "reference"
+          }
+        ]
+      },
+      {
+        "_key": "founders",
+        "_type": "foundersSection",
+        "founders": [
+          {
+            "_key": "f-0",
+            "_ref": "founder.andressa-hora",
+            "_type": "reference"
+          },
+          {
+            "_key": "f-1",
+            "_ref": "founder.tainah-hora",
+            "_type": "reference"
+          }
+        ],
+        "label": "Sócias",
+        "ordinal": "04"
+      },
+      {
+        "_key": "process",
+        "_type": "processSection",
+        "label": "Processo",
+        "ordinal": "05",
+        "steps": [
+          {
+            "_key": "st-0",
+            "_type": "step",
+            "description": "Escutamos suas ideias, rotinas e referências. É aqui que nasce a identidade do projeto.",
+            "name": "Briefing",
+            "ordinal": "01"
+          },
+          {
+            "_key": "st-1",
+            "_type": "step",
+            "description": "Partido arquitetônico, moodboards e estudos volumétricos para alinhar a direção.",
+            "name": "Estudo",
+            "ordinal": "02"
+          },
+          {
+            "_key": "st-2",
+            "_type": "step",
+            "description": "Anteprojeto, executivo, detalhamento e especificações. Tudo pronto para a obra.",
+            "name": "Projeto",
+            "ordinal": "03"
+          },
+          {
+            "_key": "st-3",
+            "_type": "step",
+            "description": "Acompanhamento técnico e curadoria de fornecedores até a entrega das chaves.",
+            "name": "Obra",
+            "ordinal": "04"
+          }
+        ]
+      },
+      {
+        "_key": "contact",
+        "_type": "contactCtaSection",
+        "label": "Contato",
+        "ordinal": "06"
+      }
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "home"
+    },
+    "title": "Início"
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:42Z",
+    "_id": "project.apartamento-beira-mar",
+    "_rev": "ADrB2TFNup8TGkOTAZKgJM",
+    "_type": "project",
+    "_updatedAt": "2026-05-17T00:07:42Z",
+    "area": "180m²",
+    "category": "residencial",
+    "city": "Fortaleza · CE",
+    "description": "Reforma completa de um apartamento à beira-mar, projetado para integrar a vista da janela à atmosfera dos ambientes. Optamos por uma paleta de areia, marfim e madeira clara, com mobiliário curvo que dialoga com a linha do horizonte. Todos os ambientes sociais foram desenhados para receber família e amigos sem perder a sensação de refúgio.",
+    "imageAlt": "Sala de estar com vista para o mar, paleta neutra e mobiliário curvo",
+    "name": "Apartamento Beira Mar",
+    "scope": [
+      "Projeto Completo",
+      "Execução"
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "apartamento-beira-mar"
+    },
+    "summary": "Um lar à beira-mar pensado para abraçar a paisagem: paleta neutra, curvas suaves e materiais que envelhecem bem.",
+    "year": 2024
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:44Z",
+    "_id": "project.escritorio-pwr",
+    "_rev": "M3JKi7ySD786zFRPXP4bp9",
+    "_type": "project",
+    "_updatedAt": "2026-05-17T00:07:44Z",
+    "area": "320m²",
+    "category": "corporativo",
+    "city": "São Paulo · SP",
+    "description": "Projeto de uma sede corporativa em São Paulo, com áreas abertas de trabalho, salas de reunião acústicas e copa-lounge para integração do time. A identidade do escritório foi traduzida em uma paleta sóbria com pontos de cor controlados, mobiliário modular e iluminação difusa de baixa temperatura.",
+    "imageAlt": "Escritório corporativo aberto com mesa de madeira clara e iluminação difusa",
+    "name": "Escritório PWR",
+    "scope": [
+      "Projeto Completo",
+      "Acompanhamento de Obra"
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "escritorio-pwr"
+    },
+    "summary": "Escritório corporativo que equilibra produtividade e identidade: madeira clara, vidro e zonas de descompressão.",
+    "year": 2024
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:45Z",
+    "_id": "project.consultorio-rafaela-holanda",
+    "_rev": "xmpmvb797NS7wYP93dTWkb",
+    "_type": "project",
+    "_updatedAt": "2026-05-17T00:07:45Z",
+    "area": "60m²",
+    "category": "comercial",
+    "city": "Fortaleza · CE",
+    "description": "Projeto de consultório clínico em Fortaleza, desenhado para acolher pacientes em um ambiente sereno e elegante. A paleta combina tons quentes de areia, madeira e cortinas leves que filtram a luz. Cada detalhe, do mobiliário à iluminação, foi escolhido para reforçar a marca pessoal e a tranquilidade do atendimento.",
+    "imageAlt": "Consultório com poltrona elegante, parede em tom areia e luz suave",
+    "name": "Consultório Rafaela Holanda",
+    "scope": [
+      "Projeto Completo"
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "consultorio-rafaela-holanda"
+    },
+    "summary": "Um consultório acolhedor que reflete a presença e a marca pessoal da profissional.",
+    "year": 2023
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:46Z",
+    "_id": "project.aviarte-sp",
+    "_rev": "M3JKi7ySD786zFRPXP4cHb",
+    "_type": "project",
+    "_updatedAt": "2026-05-17T00:07:46Z",
+    "area": "95m²",
+    "category": "comercial",
+    "city": "São Paulo · SP",
+    "description": "Projeto comercial para a Aviarte, em São Paulo. A loja foi pensada como uma sequência de cenas curatoriais: arcos e curvas guiam o olhar pelas vitrines, enquanto a iluminação focal valoriza cada peça em exposição. A paleta quente reforça a sensação de hospitalidade.",
+    "imageAlt": "Loja com prateleiras curvas, paleta quente e iluminação focal",
+    "name": "Aviarte",
+    "scope": [
+      "Projeto Completo"
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "aviarte-sp"
+    },
+    "summary": "Varejo com identidade: prateleiras curvas, paleta quente e jornada de cliente cuidadosamente coreografada.",
+    "year": 2023
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:47Z",
+    "_id": "project.capital-upgrade-alphaville",
+    "_rev": "ADrB2TFNup8TGkOTAZKgsq",
+    "_type": "project",
+    "_updatedAt": "2026-05-17T00:07:47Z",
+    "area": "210m²",
+    "category": "corporativo",
+    "city": "Alphaville · SP",
+    "imageAlt": "Sala corporativa com painéis ripados de madeira e iluminação cênica",
+    "name": "Capital Upgrade",
+    "scope": [
+      "Projeto Completo"
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "capital-upgrade-alphaville"
+    },
+    "summary": "Escritório executivo em Alphaville com identidade discreta e materialidade marcante.",
+    "year": 2023
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:48Z",
+    "_id": "project.consultorio-transfer-psicologia",
+    "_rev": "ADrB2TFNup8TGkOTAZKh2W",
+    "_type": "project",
+    "_updatedAt": "2026-05-17T00:07:48Z",
+    "area": "55m²",
+    "category": "comercial",
+    "city": "Fortaleza · CE",
+    "imageAlt": "Sala de atendimento com poltronas confortáveis e tons quentes",
+    "name": "Consultório Transfer Psicologia",
+    "scope": [
+      "Projeto Completo"
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "consultorio-transfer-psicologia"
+    },
+    "summary": "Espaço acolhedor para terapia, com luz indireta e isolamento acústico cuidadoso.",
+    "year": 2023
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:49Z",
+    "_id": "project.loja-engenhoca-parque",
+    "_rev": "M3JKi7ySD786zFRPXP4cXP",
+    "_type": "project",
+    "_updatedAt": "2026-05-17T00:07:49Z",
+    "area": "120m²",
+    "category": "comercial",
+    "city": "Fortaleza · CE",
+    "imageAlt": "Loja conceitual com mobiliário lúdico e cores vivas",
+    "name": "Loja Engenhoca Parque",
+    "scope": [
+      "Projeto Completo"
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "loja-engenhoca-parque"
+    },
+    "summary": "Loja conceitual com identidade lúdica e jornada de cliente desenhada para famílias.",
+    "year": 2022
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:50Z",
+    "_id": "project.apartamento-cozinha-verde",
+    "_rev": "xmpmvb797NS7wYP93dTWnJ",
+    "_type": "project",
+    "_updatedAt": "2026-05-17T00:07:50Z",
+    "area": "140m²",
+    "category": "residencial",
+    "city": "Fortaleza · CE",
+    "imageAlt": "Cozinha com armários verdes e bancada de mármore",
+    "name": "Apartamento Cozinha Verde",
+    "scope": [
+      "Projeto Completo",
+      "Execução"
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "apartamento-cozinha-verde"
+    },
+    "summary": "Reforma de cozinha integrada com armários em tom verde-musgo e detalhes em latão.",
+    "year": 2024
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:51Z",
+    "_id": "project.apartamento-briza",
+    "_rev": "ADrB2TFNup8TGkOTAZKhCC",
+    "_type": "project",
+    "_updatedAt": "2026-05-17T00:07:51Z",
+    "area": "95m²",
+    "category": "residencial",
+    "city": "Fortaleza · CE",
+    "imageAlt": "Sala leve e ventilada com mobiliário em fibras naturais",
+    "name": "Apartamento Briza",
+    "scope": [
+      "Consultoria",
+      "Projeto Completo"
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "apartamento-briza"
+    },
+    "summary": "Apartamento compacto repensado para ventilação natural e materiais leves.",
+    "year": 2024
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:52Z",
+    "_id": "project.projeto-pequena-magia",
+    "_rev": "ADrB2TFNup8TGkOTAZKhLs",
+    "_type": "project",
+    "_updatedAt": "2026-05-17T00:07:52Z",
+    "area": "30m²",
+    "category": "residencial",
+    "city": "Fortaleza · CE",
+    "imageAlt": "Quarto infantil com paleta suave e mobiliário sob medida",
+    "name": "Projeto Pequena Magia",
+    "scope": [
+      "Projeto Completo"
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "projeto-pequena-magia"
+    },
+    "summary": "Quarto infantil sob medida, com soluções de armazenamento e atmosfera lúdica.",
+    "year": 2022
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:53Z",
+    "_id": "service.consultoria",
+    "_rev": "M3JKi7ySD786zFRPXP4d31",
+    "_type": "service",
+    "_updatedAt": "2026-05-17T00:07:53Z",
+    "description": "Avaliação técnica e visual do ambiente com soluções profissionais para funcionalidade e design, sem um projeto detalhado.",
+    "faq": [
+      {
+        "_key": "faq-0",
+        "_type": "faq",
+        "a": "Não. A consultoria é ideal para mudanças pontuais. Se você precisa de planta, executivo e detalhamento, vale considerar o Projeto Completo.",
+        "q": "A consultoria substitui um projeto completo?"
+      },
+      {
+        "_key": "faq-1",
+        "_type": "faq",
+        "a": "Sim. Muitos clientes começam pela consultoria e seguem com a gente para o projeto completo. O valor inicial é considerado no escopo seguinte.",
+        "q": "A consultoria pode evoluir para um projeto?"
+      }
+    ],
+    "forWho": [
+      "Você quer ajustes pontuais sem fazer uma reforma completa.",
+      "Já tem o espaço pronto e quer um olhar profissional sobre o que melhorar.",
+      "Procura a primeira aproximação com um estúdio antes de contratar um projeto maior."
+    ],
+    "includes": [
+      "Visita técnica e diagnóstico do ambiente.",
+      "Paleta de cores, materiais e referências visuais.",
+      "Plano de ação priorizado, com pequenas e médias intervenções.",
+      "Reunião de devolutiva com tudo documentado."
+    ],
+    "name": "Consultoria",
+    "ordinal": "01",
+    "relatedProjects": [
+      {
+        "_key": "ref-apartamento-briza",
+        "_ref": "project.apartamento-briza",
+        "_type": "reference"
+      },
+      {
+        "_key": "ref-consultorio-transfer-psicologia",
+        "_ref": "project.consultorio-transfer-psicologia",
+        "_type": "reference"
+      }
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "consultoria"
+    },
+    "steps": [
+      {
+        "_key": "step-0",
+        "_type": "step",
+        "description": "Entendemos suas rotinas, gostos e expectativas.",
+        "name": "Briefing"
+      },
+      {
+        "_key": "step-1",
+        "_type": "step",
+        "description": "Avaliação presencial ou virtual com fotos detalhadas.",
+        "name": "Visita"
+      },
+      {
+        "_key": "step-2",
+        "_type": "step",
+        "description": "Diagnóstico técnico + sugestões de melhorias.",
+        "name": "Estudo"
+      },
+      {
+        "_key": "step-3",
+        "_type": "step",
+        "description": "Reunião final com plano de ação e próximos passos.",
+        "name": "Devolutiva"
+      }
+    ],
+    "tagline": "Para quem quer mudar o essencial."
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:54Z",
+    "_id": "service.projeto-completo",
+    "_rev": "M3JKi7ySD786zFRPXP4dIp",
+    "_type": "service",
+    "_updatedAt": "2026-05-17T00:07:54Z",
+    "description": "Estudo preliminar, anteprojeto, executivo, detalhamento, 3D e acompanhamento. Atenção rigorosa ao processo e à atmosfera do espaço.",
+    "differentiators": [
+      {
+        "_key": "d-0",
+        "_type": "differentiator",
+        "description": "Tainah traduz o partido em modelos paramétricos, garantindo precisão técnica em cada decisão.",
+        "title": "Processo paramétrico"
+      },
+      {
+        "_key": "d-1",
+        "_type": "differentiator",
+        "description": "Andressa cuida da atmosfera (luz, materialidade, gestos) para que o espaço conte uma história.",
+        "title": "Atmosfera com intenção"
+      }
+    ],
+    "faq": [
+      {
+        "_key": "faq-0",
+        "_type": "faq",
+        "a": "De 8 a 16 semanas, dependendo da metragem, complexidade e nível de detalhamento desejado.",
+        "q": "Quanto tempo dura um projeto completo?"
+      },
+      {
+        "_key": "faq-1",
+        "_type": "faq",
+        "a": "Sim. Renderizamos os ambientes principais para você visualizar a proposta antes da obra.",
+        "q": "Vocês fazem 3D realista?"
+      },
+      {
+        "_key": "faq-2",
+        "_type": "faq",
+        "a": "Sim. O projeto executivo é entregue com tudo documentado para qualquer obra qualificada executar.",
+        "q": "Posso contratar só o projeto e executar com outro construtor?"
+      }
+    ],
+    "forWho": [
+      "Reforma completa de apartamento, casa, consultório, loja ou escritório.",
+      "Imóvel novo na planta que precisa de planejamento desde o início.",
+      "Quem busca um projeto pensado nos detalhes, com identidade clara."
+    ],
+    "includes": [
+      "Briefing aprofundado e moodboard de direção.",
+      "Estudo preliminar e anteprojeto.",
+      "Projeto executivo completo (plantas técnicas, marcenaria, elétrica, hidráulica).",
+      "Detalhamento e especificações de materiais e mobiliário.",
+      "Render 3D dos ambientes principais.",
+      "Acompanhamento técnico durante a obra."
+    ],
+    "name": "Projeto Completo",
+    "ordinal": "02",
+    "relatedProjects": [
+      {
+        "_key": "ref-apartamento-beira-mar",
+        "_ref": "project.apartamento-beira-mar",
+        "_type": "reference"
+      },
+      {
+        "_key": "ref-escritorio-pwr",
+        "_ref": "project.escritorio-pwr",
+        "_type": "reference"
+      },
+      {
+        "_key": "ref-consultorio-rafaela-holanda",
+        "_ref": "project.consultorio-rafaela-holanda",
+        "_type": "reference"
+      }
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "projeto-completo"
+    },
+    "steps": [
+      {
+        "_key": "step-0",
+        "_type": "step",
+        "description": "Identidade do projeto, rotinas, restrições, referências.",
+        "name": "Briefing"
+      },
+      {
+        "_key": "step-1",
+        "_type": "step",
+        "description": "Partido arquitetônico, moodboards, estudos volumétricos.",
+        "name": "Estudo"
+      },
+      {
+        "_key": "step-2",
+        "_type": "step",
+        "description": "Plantas iniciais com layout aprovado.",
+        "name": "Anteprojeto"
+      },
+      {
+        "_key": "step-3",
+        "_type": "step",
+        "description": "Detalhamento completo de marcenaria, elétrica e hidráulica.",
+        "name": "Executivo"
+      },
+      {
+        "_key": "step-4",
+        "_type": "step",
+        "description": "Curadoria de materiais, mobiliário, iluminação.",
+        "name": "Especificações"
+      },
+      {
+        "_key": "step-5",
+        "_type": "step",
+        "description": "Suporte técnico durante a execução.",
+        "name": "Acompanhamento"
+      }
+    ],
+    "tagline": "Do briefing à última especificação."
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:55Z",
+    "_id": "service.execucao",
+    "_rev": "ADrB2TFNup8TGkOTAZKhVY",
+    "_type": "service",
+    "_updatedAt": "2026-05-17T00:07:55Z",
+    "description": "Gerenciamento de obra, fornecedores, cronograma e compras. Controle de qualidade com transparência em cada etapa.",
+    "differentiators": [
+      {
+        "_key": "d-0",
+        "_type": "differentiator",
+        "description": "Você acompanha cada compra e cada serviço, sem surpresas no fechamento.",
+        "title": "Transparência financeira"
+      },
+      {
+        "_key": "d-1",
+        "_type": "differentiator",
+        "description": "Trabalhamos com uma rede de profissionais selecionados em Fortaleza, SP e Alphaville.",
+        "title": "Curadoria de fornecedores"
+      }
+    ],
+    "faq": [
+      {
+        "_key": "faq-0",
+        "_type": "faq",
+        "a": "Sim, mediante avaliação técnica do projeto e alinhamento com o escritório de origem.",
+        "q": "Vocês executam projetos de outros arquitetos?"
+      },
+      {
+        "_key": "faq-1",
+        "_type": "faq",
+        "a": "Apresentamos planilha de obra atualizada semanalmente, com todos os recibos e comprovantes.",
+        "q": "Como funciona o controle financeiro?"
+      }
+    ],
+    "forWho": [
+      "Você já tem um projeto pronto e quer alguém de confiança gerenciando a obra.",
+      "Quer contratar projeto + execução em um único pacote.",
+      "Mora em outra cidade e precisa de acompanhamento técnico local."
+    ],
+    "includes": [
+      "Planejamento de cronograma e orçamento detalhado.",
+      "Curadoria e contratação de fornecedores e mão de obra.",
+      "Gestão de compras com transparência financeira.",
+      "Acompanhamento técnico semanal de obra.",
+      "Controle de qualidade e checklist de entrega."
+    ],
+    "name": "Execução",
+    "ordinal": "03",
+    "relatedProjects": [
+      {
+        "_key": "ref-capital-upgrade-alphaville",
+        "_ref": "project.capital-upgrade-alphaville",
+        "_type": "reference"
+      },
+      {
+        "_key": "ref-aviarte-sp",
+        "_ref": "project.aviarte-sp",
+        "_type": "reference"
+      }
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "execucao"
+    },
+    "steps": [
+      {
+        "_key": "step-0",
+        "_type": "step",
+        "description": "Cronograma, orçamento, definição de fornecedores.",
+        "name": "Planejamento"
+      },
+      {
+        "_key": "step-1",
+        "_type": "step",
+        "description": "Curadoria e aquisição de materiais e mobiliário.",
+        "name": "Compras"
+      },
+      {
+        "_key": "step-2",
+        "_type": "step",
+        "description": "Execução com acompanhamento técnico semanal.",
+        "name": "Obra"
+      },
+      {
+        "_key": "step-3",
+        "_type": "step",
+        "description": "Vistoria final, checklist e entrega das chaves.",
+        "name": "Entrega"
+      }
+    ],
+    "tagline": "Da planta à entrega das chaves."
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:56Z",
+    "_id": "founder.andressa-hora",
+    "_rev": "xmpmvb797NS7wYP93dTWtd",
+    "_type": "founder",
+    "_updatedAt": "2026-05-17T00:07:56Z",
+    "bio": "Pós-graduada em Design de Interiores pelo IED. Traz delicadeza, leveza e espontaneidade para cada projeto, sempre envolvida na área criativa.",
+    "name": "Andressa Hora",
+    "order": 0,
+    "role": "Co-fundadora · Criação"
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:57Z",
+    "_id": "founder.tainah-hora",
+    "_rev": "xmpmvb797NS7wYP93dTWwL",
+    "_type": "founder",
+    "_updatedAt": "2026-05-17T00:07:57Z",
+    "bio": "Especializada em projetos paramétricos pela Belas Artes. Foca em identidade e processo, com perspicácia e objetividade.",
+    "name": "Tainah Hora",
+    "order": 1,
+    "role": "Co-fundadora · Processo"
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:58Z",
+    "_id": "pillar.conforto",
+    "_rev": "ADrB2TFNup8TGkOTAZKhfE",
+    "_type": "pillar",
+    "_updatedAt": "2026-05-17T00:07:58Z",
+    "description": "Cada decisão (escala, luz, materialidade) é tomada para que o ambiente abrace quem o vive.",
+    "name": "Conforto",
+    "order": 0,
+    "ordinal": "01"
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:59Z",
+    "_id": "pillar.funcionalidade",
+    "_rev": "M3JKi7ySD786zFRPXP4dbn",
+    "_type": "pillar",
+    "_updatedAt": "2026-05-17T00:07:59Z",
+    "description": "Beleza sem função não dura. Estudamos rotinas reais para que o espaço trabalhe a seu favor.",
+    "name": "Funcionalidade",
+    "order": 1,
+    "ordinal": "02"
+  },
+  {
+    "_createdAt": "2026-05-17T00:08:00Z",
+    "_id": "pillar.modernidade",
+    "_rev": "xmpmvb797NS7wYP93dTX1l",
+    "_type": "pillar",
+    "_updatedAt": "2026-05-17T00:08:00Z",
+    "description": "Soluções contemporâneas, materiais que envelhecem bem e atenção ao que é atemporal.",
+    "name": "Modernidade",
+    "order": 2,
+    "ordinal": "03"
+  }
+]

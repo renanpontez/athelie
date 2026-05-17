@@ -1,0 +1,73 @@
+[
+  {
+    "_createdAt": "2026-05-17T00:07:40Z",
+    "_id": "navigation",
+    "_rev": "xmpmvb797NS7wYP93dTWfB",
+    "_type": "navigation",
+    "_updatedAt": "2026-05-17T00:07:40Z",
+    "footer": [
+      {
+        "_key": "f-/",
+        "_type": "navLink",
+        "href": "/",
+        "label": "Início"
+      },
+      {
+        "_key": "f-/sobre",
+        "_type": "navLink",
+        "href": "/sobre",
+        "label": "Sobre"
+      },
+      {
+        "_key": "f-/servicos",
+        "_type": "navLink",
+        "href": "/servicos",
+        "label": "Serviços"
+      },
+      {
+        "_key": "f-/projetos",
+        "_type": "navLink",
+        "href": "/projetos",
+        "label": "Projetos"
+      },
+      {
+        "_key": "f-/contato",
+        "_type": "navLink",
+        "href": "/contato",
+        "label": "Contato"
+      }
+    ],
+    "primary": [
+      {
+        "_key": "/",
+        "_type": "navLink",
+        "href": "/",
+        "label": "Início"
+      },
+      {
+        "_key": "/sobre",
+        "_type": "navLink",
+        "href": "/sobre",
+        "label": "Sobre"
+      },
+      {
+        "_key": "/servicos",
+        "_type": "navLink",
+        "href": "/servicos",
+        "label": "Serviços"
+      },
+      {
+        "_key": "/projetos",
+        "_type": "navLink",
+        "href": "/projetos",
+        "label": "Projetos"
+      },
+      {
+        "_key": "/contato",
+        "_type": "navLink",
+        "href": "/contato",
+        "label": "Contato"
+      }
+    ]
+  }
+]

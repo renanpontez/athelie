@@ -1,0 +1,24 @@
+[
+  {
+    "_createdAt": "2026-05-17T00:07:56Z",
+    "_id": "founder.andressa-hora",
+    "_rev": "xmpmvb797NS7wYP93dTWtd",
+    "_type": "founder",
+    "_updatedAt": "2026-05-17T00:07:56Z",
+    "bio": "Pós-graduada em Design de Interiores pelo IED. Traz delicadeza, leveza e espontaneidade para cada projeto, sempre envolvida na área criativa.",
+    "name": "Andressa Hora",
+    "order": 0,
+    "role": "Co-fundadora · Criação"
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:57Z",
+    "_id": "founder.tainah-hora",
+    "_rev": "xmpmvb797NS7wYP93dTWwL",
+    "_type": "founder",
+    "_updatedAt": "2026-05-17T00:07:57Z",
+    "bio": "Especializada em projetos paramétricos pela Belas Artes. Foca em identidade e processo, com perspicácia e objetividade.",
+    "name": "Tainah Hora",
+    "order": 1,
+    "role": "Co-fundadora · Processo"
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "_createdAt": "2026-05-17T00:07:58Z",
+    "_id": "pillar.conforto",
+    "_rev": "ADrB2TFNup8TGkOTAZKhfE",
+    "_type": "pillar",
+    "_updatedAt": "2026-05-17T00:07:58Z",
+    "description": "Cada decisão (escala, luz, materialidade) é tomada para que o ambiente abrace quem o vive.",
+    "name": "Conforto",
+    "order": 0,
+    "ordinal": "01"
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:59Z",
+    "_id": "pillar.funcionalidade",
+    "_rev": "M3JKi7ySD786zFRPXP4dbn",
+    "_type": "pillar",
+    "_updatedAt": "2026-05-17T00:07:59Z",
+    "description": "Beleza sem função não dura. Estudamos rotinas reais para que o espaço trabalhe a seu favor.",
+    "name": "Funcionalidade",
+    "order": 1,
+    "ordinal": "02"
+  },
+  {
+    "_createdAt": "2026-05-17T00:08:00Z",
+    "_id": "pillar.modernidade",
+    "_rev": "xmpmvb797NS7wYP93dTX1l",
+    "_type": "pillar",
+    "_updatedAt": "2026-05-17T00:08:00Z",
+    "description": "Soluções contemporâneas, materiais que envelhecem bem e atenção ao que é atemporal.",
+    "name": "Modernidade",
+    "order": 2,
+    "ordinal": "03"
+  }
+]

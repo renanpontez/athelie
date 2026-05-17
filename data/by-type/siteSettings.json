@@ -1,0 +1,24 @@
+[
+  {
+    "_createdAt": "2026-05-17T00:07:38Z",
+    "_id": "siteSettings",
+    "_rev": "xmpmvb797NS7wYP93dTWcT",
+    "_type": "siteSettings",
+    "_updatedAt": "2026-05-17T00:07:38Z",
+    "cities": [
+      "Fortaleza",
+      "São Paulo",
+      "Alphaville"
+    ],
+    "email": "atheliearquitetura@gmail.com",
+    "instagram": "https://instagram.com/ath.elie",
+    "instagramHandle": "@ath.elie",
+    "manifesto": "Acreditamos que cada projeto é uma oportunidade de contar uma história única, unindo estética, funcionalidade e conforto em ambientes feitos para durar.",
+    "name": "Atheliê Arquitetura",
+    "phone": "(85) 9.9145-5979",
+    "phoneHref": "tel:+5585991455979",
+    "shortName": "Atheliê",
+    "tagline": "Arquitetura que conta a sua história.",
+    "whatsapp": "https://wa.me/message/CNLSM24A456OM1"
+  }
+]

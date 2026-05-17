@@ -1,0 +1,220 @@
+[
+  {
+    "_createdAt": "2026-05-17T00:07:42Z",
+    "_id": "project.apartamento-beira-mar",
+    "_rev": "ADrB2TFNup8TGkOTAZKgJM",
+    "_type": "project",
+    "_updatedAt": "2026-05-17T00:07:42Z",
+    "area": "180m²",
+    "category": "residencial",
+    "city": "Fortaleza · CE",
+    "description": "Reforma completa de um apartamento à beira-mar, projetado para integrar a vista da janela à atmosfera dos ambientes. Optamos por uma paleta de areia, marfim e madeira clara, com mobiliário curvo que dialoga com a linha do horizonte. Todos os ambientes sociais foram desenhados para receber família e amigos sem perder a sensação de refúgio.",
+    "imageAlt": "Sala de estar com vista para o mar, paleta neutra e mobiliário curvo",
+    "name": "Apartamento Beira Mar",
+    "scope": [
+      "Projeto Completo",
+      "Execução"
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "apartamento-beira-mar"
+    },
+    "summary": "Um lar à beira-mar pensado para abraçar a paisagem: paleta neutra, curvas suaves e materiais que envelhecem bem.",
+    "year": 2024
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:44Z",
+    "_id": "project.escritorio-pwr",
+    "_rev": "M3JKi7ySD786zFRPXP4bp9",
+    "_type": "project",
+    "_updatedAt": "2026-05-17T00:07:44Z",
+    "area": "320m²",
+    "category": "corporativo",
+    "city": "São Paulo · SP",
+    "description": "Projeto de uma sede corporativa em São Paulo, com áreas abertas de trabalho, salas de reunião acústicas e copa-lounge para integração do time. A identidade do escritório foi traduzida em uma paleta sóbria com pontos de cor controlados, mobiliário modular e iluminação difusa de baixa temperatura.",
+    "imageAlt": "Escritório corporativo aberto com mesa de madeira clara e iluminação difusa",
+    "name": "Escritório PWR",
+    "scope": [
+      "Projeto Completo",
+      "Acompanhamento de Obra"
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "escritorio-pwr"
+    },
+    "summary": "Escritório corporativo que equilibra produtividade e identidade: madeira clara, vidro e zonas de descompressão.",
+    "year": 2024
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:45Z",
+    "_id": "project.consultorio-rafaela-holanda",
+    "_rev": "xmpmvb797NS7wYP93dTWkb",
+    "_type": "project",
+    "_updatedAt": "2026-05-17T00:07:45Z",
+    "area": "60m²",
+    "category": "comercial",
+    "city": "Fortaleza · CE",
+    "description": "Projeto de consultório clínico em Fortaleza, desenhado para acolher pacientes em um ambiente sereno e elegante. A paleta combina tons quentes de areia, madeira e cortinas leves que filtram a luz. Cada detalhe, do mobiliário à iluminação, foi escolhido para reforçar a marca pessoal e a tranquilidade do atendimento.",
+    "imageAlt": "Consultório com poltrona elegante, parede em tom areia e luz suave",
+    "name": "Consultório Rafaela Holanda",
+    "scope": [
+      "Projeto Completo"
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "consultorio-rafaela-holanda"
+    },
+    "summary": "Um consultório acolhedor que reflete a presença e a marca pessoal da profissional.",
+    "year": 2023
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:46Z",
+    "_id": "project.aviarte-sp",
+    "_rev": "M3JKi7ySD786zFRPXP4cHb",
+    "_type": "project",
+    "_updatedAt": "2026-05-17T00:07:46Z",
+    "area": "95m²",
+    "category": "comercial",
+    "city": "São Paulo · SP",
+    "description": "Projeto comercial para a Aviarte, em São Paulo. A loja foi pensada como uma sequência de cenas curatoriais: arcos e curvas guiam o olhar pelas vitrines, enquanto a iluminação focal valoriza cada peça em exposição. A paleta quente reforça a sensação de hospitalidade.",
+    "imageAlt": "Loja com prateleiras curvas, paleta quente e iluminação focal",
+    "name": "Aviarte",
+    "scope": [
+      "Projeto Completo"
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "aviarte-sp"
+    },
+    "summary": "Varejo com identidade: prateleiras curvas, paleta quente e jornada de cliente cuidadosamente coreografada.",
+    "year": 2023
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:47Z",
+    "_id": "project.capital-upgrade-alphaville",
+    "_rev": "ADrB2TFNup8TGkOTAZKgsq",
+    "_type": "project",
+    "_updatedAt": "2026-05-17T00:07:47Z",
+    "area": "210m²",
+    "category": "corporativo",
+    "city": "Alphaville · SP",
+    "imageAlt": "Sala corporativa com painéis ripados de madeira e iluminação cênica",
+    "name": "Capital Upgrade",
+    "scope": [
+      "Projeto Completo"
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "capital-upgrade-alphaville"
+    },
+    "summary": "Escritório executivo em Alphaville com identidade discreta e materialidade marcante.",
+    "year": 2023
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:48Z",
+    "_id": "project.consultorio-transfer-psicologia",
+    "_rev": "ADrB2TFNup8TGkOTAZKh2W",
+    "_type": "project",
+    "_updatedAt": "2026-05-17T00:07:48Z",
+    "area": "55m²",
+    "category": "comercial",
+    "city": "Fortaleza · CE",
+    "imageAlt": "Sala de atendimento com poltronas confortáveis e tons quentes",
+    "name": "Consultório Transfer Psicologia",
+    "scope": [
+      "Projeto Completo"
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "consultorio-transfer-psicologia"
+    },
+    "summary": "Espaço acolhedor para terapia, com luz indireta e isolamento acústico cuidadoso.",
+    "year": 2023
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:49Z",
+    "_id": "project.loja-engenhoca-parque",
+    "_rev": "M3JKi7ySD786zFRPXP4cXP",
+    "_type": "project",
+    "_updatedAt": "2026-05-17T00:07:49Z",
+    "area": "120m²",
+    "category": "comercial",
+    "city": "Fortaleza · CE",
+    "imageAlt": "Loja conceitual com mobiliário lúdico e cores vivas",
+    "name": "Loja Engenhoca Parque",
+    "scope": [
+      "Projeto Completo"
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "loja-engenhoca-parque"
+    },
+    "summary": "Loja conceitual com identidade lúdica e jornada de cliente desenhada para famílias.",
+    "year": 2022
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:50Z",
+    "_id": "project.apartamento-cozinha-verde",
+    "_rev": "xmpmvb797NS7wYP93dTWnJ",
+    "_type": "project",
+    "_updatedAt": "2026-05-17T00:07:50Z",
+    "area": "140m²",
+    "category": "residencial",
+    "city": "Fortaleza · CE",
+    "imageAlt": "Cozinha com armários verdes e bancada de mármore",
+    "name": "Apartamento Cozinha Verde",
+    "scope": [
+      "Projeto Completo",
+      "Execução"
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "apartamento-cozinha-verde"
+    },
+    "summary": "Reforma de cozinha integrada com armários em tom verde-musgo e detalhes em latão.",
+    "year": 2024
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:51Z",
+    "_id": "project.apartamento-briza",
+    "_rev": "ADrB2TFNup8TGkOTAZKhCC",
+    "_type": "project",
+    "_updatedAt": "2026-05-17T00:07:51Z",
+    "area": "95m²",
+    "category": "residencial",
+    "city": "Fortaleza · CE",
+    "imageAlt": "Sala leve e ventilada com mobiliário em fibras naturais",
+    "name": "Apartamento Briza",
+    "scope": [
+      "Consultoria",
+      "Projeto Completo"
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "apartamento-briza"
+    },
+    "summary": "Apartamento compacto repensado para ventilação natural e materiais leves.",
+    "year": 2024
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:52Z",
+    "_id": "project.projeto-pequena-magia",
+    "_rev": "ADrB2TFNup8TGkOTAZKhLs",
+    "_type": "project",
+    "_updatedAt": "2026-05-17T00:07:52Z",
+    "area": "30m²",
+    "category": "residencial",
+    "city": "Fortaleza · CE",
+    "imageAlt": "Quarto infantil com paleta suave e mobiliário sob medida",
+    "name": "Projeto Pequena Magia",
+    "scope": [
+      "Projeto Completo"
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "projeto-pequena-magia"
+    },
+    "summary": "Quarto infantil sob medida, com soluções de armazenamento e atmosfera lúdica.",
+    "year": 2022
+  }
+]

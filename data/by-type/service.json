@@ -1,0 +1,290 @@
+[
+  {
+    "_createdAt": "2026-05-17T00:07:53Z",
+    "_id": "service.consultoria",
+    "_rev": "M3JKi7ySD786zFRPXP4d31",
+    "_type": "service",
+    "_updatedAt": "2026-05-17T00:07:53Z",
+    "description": "Avaliação técnica e visual do ambiente com soluções profissionais para funcionalidade e design, sem um projeto detalhado.",
+    "faq": [
+      {
+        "_key": "faq-0",
+        "_type": "faq",
+        "a": "Não. A consultoria é ideal para mudanças pontuais. Se você precisa de planta, executivo e detalhamento, vale considerar o Projeto Completo.",
+        "q": "A consultoria substitui um projeto completo?"
+      },
+      {
+        "_key": "faq-1",
+        "_type": "faq",
+        "a": "Sim. Muitos clientes começam pela consultoria e seguem com a gente para o projeto completo. O valor inicial é considerado no escopo seguinte.",
+        "q": "A consultoria pode evoluir para um projeto?"
+      }
+    ],
+    "forWho": [
+      "Você quer ajustes pontuais sem fazer uma reforma completa.",
+      "Já tem o espaço pronto e quer um olhar profissional sobre o que melhorar.",
+      "Procura a primeira aproximação com um estúdio antes de contratar um projeto maior."
+    ],
+    "includes": [
+      "Visita técnica e diagnóstico do ambiente.",
+      "Paleta de cores, materiais e referências visuais.",
+      "Plano de ação priorizado, com pequenas e médias intervenções.",
+      "Reunião de devolutiva com tudo documentado."
+    ],
+    "name": "Consultoria",
+    "ordinal": "01",
+    "relatedProjects": [
+      {
+        "_key": "ref-apartamento-briza",
+        "_ref": "project.apartamento-briza",
+        "_type": "reference"
+      },
+      {
+        "_key": "ref-consultorio-transfer-psicologia",
+        "_ref": "project.consultorio-transfer-psicologia",
+        "_type": "reference"
+      }
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "consultoria"
+    },
+    "steps": [
+      {
+        "_key": "step-0",
+        "_type": "step",
+        "description": "Entendemos suas rotinas, gostos e expectativas.",
+        "name": "Briefing"
+      },
+      {
+        "_key": "step-1",
+        "_type": "step",
+        "description": "Avaliação presencial ou virtual com fotos detalhadas.",
+        "name": "Visita"
+      },
+      {
+        "_key": "step-2",
+        "_type": "step",
+        "description": "Diagnóstico técnico + sugestões de melhorias.",
+        "name": "Estudo"
+      },
+      {
+        "_key": "step-3",
+        "_type": "step",
+        "description": "Reunião final com plano de ação e próximos passos.",
+        "name": "Devolutiva"
+      }
+    ],
+    "tagline": "Para quem quer mudar o essencial."
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:54Z",
+    "_id": "service.projeto-completo",
+    "_rev": "M3JKi7ySD786zFRPXP4dIp",
+    "_type": "service",
+    "_updatedAt": "2026-05-17T00:07:54Z",
+    "description": "Estudo preliminar, anteprojeto, executivo, detalhamento, 3D e acompanhamento. Atenção rigorosa ao processo e à atmosfera do espaço.",
+    "differentiators": [
+      {
+        "_key": "d-0",
+        "_type": "differentiator",
+        "description": "Tainah traduz o partido em modelos paramétricos, garantindo precisão técnica em cada decisão.",
+        "title": "Processo paramétrico"
+      },
+      {
+        "_key": "d-1",
+        "_type": "differentiator",
+        "description": "Andressa cuida da atmosfera (luz, materialidade, gestos) para que o espaço conte uma história.",
+        "title": "Atmosfera com intenção"
+      }
+    ],
+    "faq": [
+      {
+        "_key": "faq-0",
+        "_type": "faq",
+        "a": "De 8 a 16 semanas, dependendo da metragem, complexidade e nível de detalhamento desejado.",
+        "q": "Quanto tempo dura um projeto completo?"
+      },
+      {
+        "_key": "faq-1",
+        "_type": "faq",
+        "a": "Sim. Renderizamos os ambientes principais para você visualizar a proposta antes da obra.",
+        "q": "Vocês fazem 3D realista?"
+      },
+      {
+        "_key": "faq-2",
+        "_type": "faq",
+        "a": "Sim. O projeto executivo é entregue com tudo documentado para qualquer obra qualificada executar.",
+        "q": "Posso contratar só o projeto e executar com outro construtor?"
+      }
+    ],
+    "forWho": [
+      "Reforma completa de apartamento, casa, consultório, loja ou escritório.",
+      "Imóvel novo na planta que precisa de planejamento desde o início.",
+      "Quem busca um projeto pensado nos detalhes, com identidade clara."
+    ],
+    "includes": [
+      "Briefing aprofundado e moodboard de direção.",
+      "Estudo preliminar e anteprojeto.",
+      "Projeto executivo completo (plantas técnicas, marcenaria, elétrica, hidráulica).",
+      "Detalhamento e especificações de materiais e mobiliário.",
+      "Render 3D dos ambientes principais.",
+      "Acompanhamento técnico durante a obra."
+    ],
+    "name": "Projeto Completo",
+    "ordinal": "02",
+    "relatedProjects": [
+      {
+        "_key": "ref-apartamento-beira-mar",
+        "_ref": "project.apartamento-beira-mar",
+        "_type": "reference"
+      },
+      {
+        "_key": "ref-escritorio-pwr",
+        "_ref": "project.escritorio-pwr",
+        "_type": "reference"
+      },
+      {
+        "_key": "ref-consultorio-rafaela-holanda",
+        "_ref": "project.consultorio-rafaela-holanda",
+        "_type": "reference"
+      }
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "projeto-completo"
+    },
+    "steps": [
+      {
+        "_key": "step-0",
+        "_type": "step",
+        "description": "Identidade do projeto, rotinas, restrições, referências.",
+        "name": "Briefing"
+      },
+      {
+        "_key": "step-1",
+        "_type": "step",
+        "description": "Partido arquitetônico, moodboards, estudos volumétricos.",
+        "name": "Estudo"
+      },
+      {
+        "_key": "step-2",
+        "_type": "step",
+        "description": "Plantas iniciais com layout aprovado.",
+        "name": "Anteprojeto"
+      },
+      {
+        "_key": "step-3",
+        "_type": "step",
+        "description": "Detalhamento completo de marcenaria, elétrica e hidráulica.",
+        "name": "Executivo"
+      },
+      {
+        "_key": "step-4",
+        "_type": "step",
+        "description": "Curadoria de materiais, mobiliário, iluminação.",
+        "name": "Especificações"
+      },
+      {
+        "_key": "step-5",
+        "_type": "step",
+        "description": "Suporte técnico durante a execução.",
+        "name": "Acompanhamento"
+      }
+    ],
+    "tagline": "Do briefing à última especificação."
+  },
+  {
+    "_createdAt": "2026-05-17T00:07:55Z",
+    "_id": "service.execucao",
+    "_rev": "ADrB2TFNup8TGkOTAZKhVY",
+    "_type": "service",
+    "_updatedAt": "2026-05-17T00:07:55Z",
+    "description": "Gerenciamento de obra, fornecedores, cronograma e compras. Controle de qualidade com transparência em cada etapa.",
+    "differentiators": [
+      {
+        "_key": "d-0",
+        "_type": "differentiator",
+        "description": "Você acompanha cada compra e cada serviço, sem surpresas no fechamento.",
+        "title": "Transparência financeira"
+      },
+      {
+        "_key": "d-1",
+        "_type": "differentiator",
+        "description": "Trabalhamos com uma rede de profissionais selecionados em Fortaleza, SP e Alphaville.",
+        "title": "Curadoria de fornecedores"
+      }
+    ],
+    "faq": [
+      {
+        "_key": "faq-0",
+        "_type": "faq",
+        "a": "Sim, mediante avaliação técnica do projeto e alinhamento com o escritório de origem.",
+        "q": "Vocês executam projetos de outros arquitetos?"
+      },
+      {
+        "_key": "faq-1",
+        "_type": "faq",
+        "a": "Apresentamos planilha de obra atualizada semanalmente, com todos os recibos e comprovantes.",
+        "q": "Como funciona o controle financeiro?"
+      }
+    ],
+    "forWho": [
+      "Você já tem um projeto pronto e quer alguém de confiança gerenciando a obra.",
+      "Quer contratar projeto + execução em um único pacote.",
+      "Mora em outra cidade e precisa de acompanhamento técnico local."
+    ],
+    "includes": [
+      "Planejamento de cronograma e orçamento detalhado.",
+      "Curadoria e contratação de fornecedores e mão de obra.",
+      "Gestão de compras com transparência financeira.",
+      "Acompanhamento técnico semanal de obra.",
+      "Controle de qualidade e checklist de entrega."
+    ],
+    "name": "Execução",
+    "ordinal": "03",
+    "relatedProjects": [
+      {
+        "_key": "ref-capital-upgrade-alphaville",
+        "_ref": "project.capital-upgrade-alphaville",
+        "_type": "reference"
+      },
+      {
+        "_key": "ref-aviarte-sp",
+        "_ref": "project.aviarte-sp",
+        "_type": "reference"
+      }
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "execucao"
+    },
+    "steps": [
+      {
+        "_key": "step-0",
+        "_type": "step",
+        "description": "Cronograma, orçamento, definição de fornecedores.",
+        "name": "Planejamento"
+      },
+      {
+        "_key": "step-1",
+        "_type": "step",
+        "description": "Curadoria e aquisição de materiais e mobiliário.",
+        "name": "Compras"
+      },
+      {
+        "_key": "step-2",
+        "_type": "step",
+        "description": "Execução com acompanhamento técnico semanal.",
+        "name": "Obra"
+      },
+      {
+        "_key": "step-3",
+        "_type": "step",
+        "description": "Vistoria final, checklist e entrega das chaves.",
+        "name": "Entrega"
+      }
+    ],
+    "tagline": "Da planta à entrega das chaves."
+  }
+]

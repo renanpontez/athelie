@@ -1,0 +1,143 @@
+[
+  {
+    "_createdAt": "2026-05-17T00:08:01Z",
+    "_id": "page.home",
+    "_rev": "M3JKi7ySD786zFRPXP4dlH",
+    "_type": "page",
+    "_updatedAt": "2026-05-17T00:08:01Z",
+    "sections": [
+      {
+        "_key": "hero",
+        "_type": "heroSection",
+        "body": "Projetos residenciais, comerciais e corporativos pensados nos detalhes, equilibrando estética, funcionalidade e conforto em ambientes feitos para durar.",
+        "eyebrow": "Estúdio de arquitetura de interiores",
+        "featuredProject": {
+          "_ref": "project.escritorio-pwr",
+          "_type": "reference"
+        }
+      },
+      {
+        "_key": "manifesto",
+        "_type": "manifestoSection",
+        "label": "Manifesto",
+        "ordinal": "01"
+      },
+      {
+        "_key": "projects",
+        "_type": "featuredProjectsSection",
+        "label": "Projetos selecionados",
+        "ordinal": "02",
+        "projects": [
+          {
+            "_key": "p-0",
+            "_ref": "project.apartamento-beira-mar",
+            "_type": "reference"
+          },
+          {
+            "_key": "p-1",
+            "_ref": "project.escritorio-pwr",
+            "_type": "reference"
+          },
+          {
+            "_key": "p-2",
+            "_ref": "project.consultorio-rafaela-holanda",
+            "_type": "reference"
+          },
+          {
+            "_key": "p-3",
+            "_ref": "project.aviarte-sp",
+            "_type": "reference"
+          }
+        ]
+      },
+      {
+        "_key": "services",
+        "_type": "servicesSection",
+        "label": "Serviços",
+        "ordinal": "03",
+        "services": [
+          {
+            "_key": "s-0",
+            "_ref": "service.consultoria",
+            "_type": "reference"
+          },
+          {
+            "_key": "s-1",
+            "_ref": "service.projeto-completo",
+            "_type": "reference"
+          },
+          {
+            "_key": "s-2",
+            "_ref": "service.execucao",
+            "_type": "reference"
+          }
+        ]
+      },
+      {
+        "_key": "founders",
+        "_type": "foundersSection",
+        "founders": [
+          {
+            "_key": "f-0",
+            "_ref": "founder.andressa-hora",
+            "_type": "reference"
+          },
+          {
+            "_key": "f-1",
+            "_ref": "founder.tainah-hora",
+            "_type": "reference"
+          }
+        ],
+        "label": "Sócias",
+        "ordinal": "04"
+      },
+      {
+        "_key": "process",
+        "_type": "processSection",
+        "label": "Processo",
+        "ordinal": "05",
+        "steps": [
+          {
+            "_key": "st-0",
+            "_type": "step",
+            "description": "Escutamos suas ideias, rotinas e referências. É aqui que nasce a identidade do projeto.",
+            "name": "Briefing",
+            "ordinal": "01"
+          },
+          {
+            "_key": "st-1",
+            "_type": "step",
+            "description": "Partido arquitetônico, moodboards e estudos volumétricos para alinhar a direção.",
+            "name": "Estudo",
+            "ordinal": "02"
+          },
+          {
+            "_key": "st-2",
+            "_type": "step",
+            "description": "Anteprojeto, executivo, detalhamento e especificações. Tudo pronto para a obra.",
+            "name": "Projeto",
+            "ordinal": "03"
+          },
+          {
+            "_key": "st-3",
+            "_type": "step",
+            "description": "Acompanhamento técnico e curadoria de fornecedores até a entrega das chaves.",
+            "name": "Obra",
+            "ordinal": "04"
+          }
+        ]
+      },
+      {
+        "_key": "contact",
+        "_type": "contactCtaSection",
+        "label": "Contato",
+        "ordinal": "06"
+      }
+    ],
+    "slug": {
+      "_type": "slug",
+      "current": "home"
+    },
+    "title": "Início"
+  }
+]
