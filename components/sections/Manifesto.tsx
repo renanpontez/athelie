@@ -2,17 +2,29 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Hairline } from "@/components/ui/Hairline";
 import { cn } from "@/lib/utils";
 
-const segments: { text: string; italic?: boolean }[] = [
+type Segment = { text: string; italic?: boolean };
+
+type Props = {
+  ordinal?: string;
+  label?: string;
+  segments?: Segment[];
+};
+
+const DEFAULT_SEGMENTS: Segment[] = [
   { text: "Cada projeto é uma oportunidade de" },
   { text: "contar uma história única,", italic: true },
   { text: "unindo estética, funcionalidade e conforto em ambientes feitos para durar." },
 ];
 
-export function Manifesto() {
+export function Manifesto({
+  ordinal = "01",
+  label = "Manifesto",
+  segments = DEFAULT_SEGMENTS,
+}: Props = {}) {
   let wordIndex = 0;
   return (
     <section className="container-edge pt-32 md:pt-48 pb-12 md:pb-20 manifesto-section">
-      <SectionLabel ordinal="01" label="Manifesto" />
+      <SectionLabel ordinal={ordinal} label={label} />
       <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
         <div className="md:col-span-2 hidden md:block pt-6">
           <Hairline reveal />
@@ -27,10 +39,9 @@ export function Manifesto() {
                   return (
                     <span
                       key={`${segIdx}-${wordIndex}`}
-                      className="manifesto-word inline-block opacity-30"
+                      className="manifesto-word inline-block opacity-30 me-[0.28em]"
                     >
                       {word}
-                      {" "}
                     </span>
                   );
                 })}

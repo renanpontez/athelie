@@ -3,8 +3,27 @@ import Link from "next/link";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Hairline } from "@/components/ui/Hairline";
 import { CTA } from "@/components/ui/CTA";
-import { projects } from "@/lib/content";
+import { projects as staticProjects } from "@/lib/content";
 import { cn } from "@/lib/utils";
+
+type ProjectCard = {
+  slug: string;
+  name: string;
+  category: string;
+  city: string;
+  year: number;
+  image: string;
+  imageAlt: string;
+};
+
+type Props = {
+  ordinal?: string;
+  label?: string;
+  headingText?: string;
+  projects?: ProjectCard[];
+  viewAllHref?: string;
+  viewAllLabel?: string;
+};
 
 const layoutClasses = [
   "md:col-span-7 md:mt-0",
@@ -20,7 +39,14 @@ const imageRatios = [
   "aspect-[4/3]",
 ];
 
-export function FeaturedProjects() {
+export function FeaturedProjects({
+  ordinal = "02",
+  label = "Projetos selecionados",
+  headingText = "Casas, lojas e escritórios feitos com pensamento.",
+  projects = staticProjects.slice(0, 4),
+  viewAllHref = "/projetos",
+  viewAllLabel = "Ver portfólio completo",
+}: Props = {}) {
   const featured = projects.slice(0, 4);
 
   return (
@@ -30,15 +56,13 @@ export function FeaturedProjects() {
     >
       <div className="flex items-end justify-between gap-6 flex-wrap">
         <div>
-          <SectionLabel ordinal="02" label="Projetos selecionados" />
+          <SectionLabel ordinal={ordinal} label={label} />
           <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] max-w-[15ch] reveal-word">
-            <span>
-              Casas, lojas e escritórios feitos com pensamento.
-            </span>
+            <span>{headingText}</span>
           </h2>
         </div>
-        <CTA href="/projetos" variant="underline">
-          Ver portfólio completo
+        <CTA href={viewAllHref} variant="underline">
+          {viewAllLabel}
         </CTA>
       </div>
 
@@ -62,13 +86,15 @@ export function FeaturedProjects() {
                 imageRatios[i]
               )}
             >
-              <Image
-                src={p.image}
-                alt={p.imageAlt}
-                fill
-                sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-cover transition-transform duration-[1200ms] ease-[var(--ease-out-expo)] group-hover:scale-[1.04]"
-              />
+              {p.image ? (
+                <Image
+                  src={p.image}
+                  alt={p.imageAlt}
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-[1200ms] ease-[var(--ease-out-expo)] group-hover:scale-[1.04]"
+                />
+              ) : null}
               <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-5 opacity-0 transition-opacity duration-700 group-hover:opacity-100 z-10">
                 <span className="font-mono-label text-bone">{p.year}</span>
                 <span className="font-mono-label text-bone inline-flex items-center gap-2">
@@ -98,7 +124,7 @@ export function FeaturedProjects() {
                 </h3>
               </div>
               <p className="font-mono-label text-stone whitespace-nowrap">
-                {p.city.split(" · ")[1] ?? p.city}
+                {p.city?.split(" · ")[1] ?? p.city}
               </p>
             </div>
           </Link>
