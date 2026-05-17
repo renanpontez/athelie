@@ -13,19 +13,23 @@ type Feature = {
 };
 
 export function Hero({ feature }: { feature?: Feature } = {}) {
-  const heroFeature = feature ?? defaultFeature;
+  // Fall back to defaults if no feature OR feature has empty image (Sanity has no upload yet)
+  const heroFeature =
+    feature && feature.image ? feature : defaultFeature;
   return (
     <section className="hero relative min-h-[100svh] overflow-hidden">
       {/* full-bleed background image */}
       <div className="absolute inset-0 bg-bone-2">
-        <Image
-          src={heroFeature.image}
-          alt={heroFeature.imageAlt}
-          fill
-          priority
-          sizes="100vw"
-          className="hero-image object-cover"
-        />
+        {heroFeature.image && (
+          <Image
+            src={heroFeature.image}
+            alt={heroFeature.imageAlt}
+            fill
+            priority
+            sizes="100vw"
+            className="hero-image object-cover"
+          />
+        )}
 
         {/* warm bone tint to harmonize photo with the site palette */}
         <div className="absolute inset-0 bg-bone/15 mix-blend-lighten pointer-events-none" />
