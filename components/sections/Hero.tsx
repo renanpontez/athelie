@@ -12,10 +12,40 @@ type Feature = {
   projectYear: number;
 };
 
-export function Hero({ feature }: { feature?: Feature } = {}) {
-  // Fall back to defaults if no feature OR feature has empty image (Sanity has no upload yet)
-  const heroFeature =
-    feature && feature.image ? feature : defaultFeature;
+type CTAProp = { label: string; href: string; external?: boolean };
+
+type Props = {
+  eyebrow?: string;
+  headline?: React.ReactNode;
+  body?: string;
+  ctaPrimary?: CTAProp;
+  ctaSecondary?: CTAProp;
+  feature?: Feature;
+};
+
+const DEFAULT_HEADLINE = (
+  <>
+    <span className="reveal-word">
+      <span>Arquitetura</span>
+    </span>
+    <span className="block italic text-sage-dark reveal-word">
+      <span>que conta</span>
+    </span>
+    <span className="block reveal-word">
+      <span>a sua história.</span>
+    </span>
+  </>
+);
+
+export function Hero({
+  eyebrow = "Estúdio de arquitetura de interiores",
+  headline = DEFAULT_HEADLINE,
+  body = "Projetos residenciais, comerciais e corporativos pensados nos detalhes, equilibrando estética, funcionalidade e conforto em ambientes feitos para durar.",
+  ctaPrimary = { label: "Ver projetos", href: "#projetos" },
+  ctaSecondary = { label: "Fazer briefing", href: studio.whatsapp, external: true },
+  feature,
+}: Props = {}) {
+  const heroFeature = feature && feature.image ? feature : defaultFeature;
   return (
     <section className="hero relative min-h-[100svh] overflow-hidden">
       {/* full-bleed background image */}
@@ -60,55 +90,63 @@ export function Hero({ feature }: { feature?: Feature } = {}) {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-10 items-start min-h-[60svh]">
           {/* left column: editorial copy on bone tint */}
           <div className="md:col-span-7">
-            <p className="font-mono-label text-stone mb-6 reveal-word">
-              <span>Estúdio de arquitetura de interiores</span>
-            </p>
+            {eyebrow && (
+              <p className="font-mono-label text-stone mb-6 reveal-word">
+                <span>{eyebrow}</span>
+              </p>
+            )}
 
             <h1 className="font-display text-[clamp(2.75rem,7vw,6.5rem)] leading-[0.95] tracking-tight text-ink">
-              <span className="reveal-word">
-                <span>Arquitetura</span>
-              </span>
-              <span className="block italic text-sage-dark reveal-word">
-                <span>que conta</span>
-              </span>
-              <span className="block reveal-word">
-                <span>a sua história.</span>
-              </span>
+              {headline}
             </h1>
 
-            <p className="mt-10 max-w-md text-base md:text-lg text-ink-2 fade-up">
-              Projetos residenciais, comerciais e corporativos pensados nos
-              detalhes, equilibrando estética, funcionalidade e conforto em
-              ambientes feitos para durar.
-            </p>
+            {body && (
+              <p className="mt-10 max-w-md text-base md:text-lg text-ink-2 fade-up">
+                {body}
+              </p>
+            )}
 
             <div className="mt-10 flex flex-wrap items-center gap-4 fade-up">
-              <CTA href="#projetos" variant="primary">
-                Ver projetos
-              </CTA>
-              <CTA href={studio.whatsapp} variant="ghost" external>
-                Fazer briefing
-              </CTA>
+              {ctaPrimary && (
+                <CTA
+                  href={ctaPrimary.href}
+                  variant="primary"
+                  external={ctaPrimary.external}
+                >
+                  {ctaPrimary.label}
+                </CTA>
+              )}
+              {ctaSecondary && (
+                <CTA
+                  href={ctaSecondary.href}
+                  variant="ghost"
+                  external={ctaSecondary.external}
+                >
+                  {ctaSecondary.label}
+                </CTA>
+              )}
             </div>
           </div>
 
           {/* right column: floating "projeto em destaque" pill over image */}
-          <div className="md:col-span-5 relative md:min-h-[55svh]">
-            <div className="md:absolute md:bottom-0 md:right-0 flex flex-col items-start md:items-end gap-3 fade-up">
-              <div className="font-mono-label text-ink flex items-center gap-2">
-                <span className="h-px w-6 bg-ink/40" />
-                <span>Projeto em destaque</span>
-              </div>
+          {heroFeature.projectName && (
+            <div className="md:col-span-5 relative md:min-h-[55svh]">
+              <div className="md:absolute md:bottom-0 md:right-0 flex flex-col items-start md:items-end gap-3 fade-up">
+                <div className="font-mono-label text-ink flex items-center gap-2">
+                  <span className="h-px w-6 bg-ink/40" />
+                  <span>Projeto em destaque</span>
+                </div>
 
-              <div className="inline-flex items-center gap-3 rounded-full bg-bone/60 backdrop-blur-md px-4 py-2 font-mono-label shadow-soft ring-1 ring-bone/40">
-                <span className="block h-1.5 w-1.5 rounded-full bg-sage-dark" />
-                <span className="text-ink">{heroFeature.projectName}</span>
-                <span className="text-ink-2/80">
-                  · {heroFeature.projectCity}
-                </span>
+                <div className="inline-flex items-center gap-3 rounded-full bg-bone/60 backdrop-blur-md px-4 py-2 font-mono-label shadow-soft ring-1 ring-bone/40">
+                  <span className="block h-1.5 w-1.5 rounded-full bg-sage-dark" />
+                  <span className="text-ink">{heroFeature.projectName}</span>
+                  <span className="text-ink-2/80">
+                    · {heroFeature.projectCity}
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </section>
