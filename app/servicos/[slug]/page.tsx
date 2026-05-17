@@ -69,11 +69,7 @@ export default async function ServiceDetailPage({ params }: Props) {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-x-10 items-end">
           <div className="md:col-span-8">
-            <SectionLabel
-              ordinal={service.ordinal}
-              label="Serviço"
-              total="03"
-            />
+            <SectionLabel label="Serviço" />
             <h1 className="mt-6 font-display text-[clamp(2.75rem,8vw,7rem)] leading-[0.95] tracking-tight text-ink max-w-[14ch]">
               {service.name}.
             </h1>
@@ -95,7 +91,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       {service.forWho && service.forWho.length > 0 && (
         <section className="bg-bone-2 py-16 md:py-24 reveal-on-scroll">
           <div className="container-edge">
-            <SectionLabel ordinal="02" label="Para quem é" />
+            <SectionLabel label="Para quem é" />
             <div className="mt-8">
               <Hairline reveal />
             </div>
@@ -119,7 +115,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       {/* o que inclui */}
       {service.includes && service.includes.length > 0 && (
         <section className="container-edge py-16 md:py-24 reveal-on-scroll">
-          <SectionLabel ordinal="03" label="O que inclui" />
+          <SectionLabel label="O que inclui" />
           <div className="mt-10 grid grid-cols-1 md:grid-cols-12 gap-y-6 md:gap-x-10">
             <div className="md:col-span-4">
               <h2 className="font-display text-3xl md:text-4xl leading-tight text-ink reveal-word">
@@ -149,7 +145,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       {service.steps && service.steps.length > 0 && (
         <section className="bg-bone-2 py-16 md:py-24 reveal-on-scroll">
           <div className="container-edge">
-            <SectionLabel ordinal="04" label="Como funciona" />
+            <SectionLabel label="Como funciona" />
             <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] max-w-[16ch] reveal-word">
               <span>Cada etapa, com um propósito.</span>
             </h2>
@@ -184,7 +180,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       {/* diferenciais */}
       {service.differentiators && service.differentiators.length > 0 && (
         <section className="container-edge py-16 md:py-24 reveal-on-scroll">
-          <SectionLabel ordinal="05" label="Diferenciais" />
+          <SectionLabel label="Diferenciais" />
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
             {service.differentiators.map((d, i) => (
               <article
@@ -209,7 +205,7 @@ export default async function ServiceDetailPage({ params }: Props) {
         <section className="container-edge py-16 md:py-24 reveal-on-scroll">
           <div className="flex items-end justify-between flex-wrap gap-6">
             <div>
-              <SectionLabel ordinal="06" label="Cases relacionados" />
+              <SectionLabel label="Cases relacionados" />
               <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] max-w-[18ch] reveal-word">
                 <span>Projetos que nasceram deste serviço.</span>
               </h2>
@@ -258,7 +254,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       {service.faq && service.faq.length > 0 && (
         <section className="bg-bone-2 py-16 md:py-24 reveal-on-scroll">
           <div className="container-edge">
-            <SectionLabel ordinal="07" label="Perguntas frequentes" />
+            <SectionLabel label="Perguntas frequentes" />
             <div className="mt-10 grid grid-cols-1 md:grid-cols-12 gap-y-6 md:gap-x-10">
               <div className="md:col-span-4">
                 <h2 className="font-display text-3xl md:text-4xl leading-tight text-ink reveal-word">

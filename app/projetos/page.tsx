@@ -30,7 +30,7 @@ export default function ProjetosPage() {
           />
         </div>
 
-        <SectionLabel ordinal="01" label="Projetos" total="07" />
+        <SectionLabel label="Projetos" />
         <h1 className="mt-6 font-display text-[clamp(2.5rem,7vw,6rem)] leading-[0.95] tracking-tight text-ink max-w-[14ch]">
           Cada espaço tem{" "}
           <span className="italic text-sage-dark">sua história</span>.
@@ -65,11 +65,7 @@ export default function ProjetosPage() {
             className="container-edge py-16 md:py-24 reveal-on-scroll"
           >
             <div className="flex items-end justify-between flex-wrap gap-6">
-              <SectionLabel
-                ordinal={String(catIdx + 1).padStart(2, "0")}
-                label={categoryLabels[cat]}
-                total={String(order.length).padStart(2, "0")}
-              />
+              <SectionLabel label={categoryLabels[cat]} />
               <span className="font-mono-label text-stone">
                 {String(list.length).padStart(2, "0")} projeto
                 {list.length > 1 ? "s" : ""}

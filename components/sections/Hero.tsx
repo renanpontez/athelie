@@ -1,15 +1,14 @@
 import Image from "next/image";
 import { CTA } from "@/components/ui/CTA";
 import { DimensionLabel } from "@/components/ui/DimensionLabel";
-import { studio, heroFeature as defaultFeature } from "@/lib/content";
 
 type Feature = {
   image: string;
   imageAlt: string;
-  projectName: string;
-  projectCity: string;
-  projectCategory: string;
-  projectYear: number;
+  projectName?: string;
+  projectCity?: string;
+  projectCategory?: string;
+  projectYear?: number;
 };
 
 type CTAProp = { label: string; href: string; external?: boolean };
@@ -20,40 +19,31 @@ type Props = {
   body?: string;
   ctaPrimary?: CTAProp;
   ctaSecondary?: CTAProp;
+  dimensionLabel?: string;
   feature?: Feature;
 };
 
-const DEFAULT_HEADLINE = (
-  <>
-    <span className="reveal-word">
-      <span>Arquitetura</span>
-    </span>
-    <span className="block italic text-sage-dark reveal-word">
-      <span>que conta</span>
-    </span>
-    <span className="block reveal-word">
-      <span>a sua história.</span>
-    </span>
-  </>
-);
-
+/**
+ * Athelie hero — full-bleed background image with editorial copy on the left
+ * fading from bone. No hardcoded fallbacks: everything visible comes from
+ * Sanity (or from `page.backup.tsx` if you need the legacy reference).
+ */
 export function Hero({
-  eyebrow = "Estúdio de arquitetura de interiores",
-  headline = DEFAULT_HEADLINE,
-  body = "Projetos residenciais, comerciais e corporativos pensados nos detalhes, equilibrando estética, funcionalidade e conforto em ambientes feitos para durar.",
-  ctaPrimary = { label: "Ver projetos", href: "#projetos" },
-  ctaSecondary = { label: "Fazer briefing", href: studio.whatsapp, external: true },
+  eyebrow,
+  headline,
+  body,
+  ctaPrimary,
+  ctaSecondary,
+  dimensionLabel,
   feature,
-}: Props = {}) {
-  const heroFeature = feature && feature.image ? feature : defaultFeature;
+}: Props) {
   return (
     <section className="hero relative min-h-[100svh] overflow-hidden">
-      {/* full-bleed background image */}
       <div className="absolute inset-0 bg-bone-2">
-        {heroFeature.image && (
+        {feature?.image && (
           <Image
-            src={heroFeature.image}
-            alt={heroFeature.imageAlt}
+            src={feature.image}
+            alt={feature.imageAlt}
             fill
             priority
             sizes="100vw"
@@ -61,10 +51,8 @@ export function Hero({
           />
         )}
 
-        {/* warm bone tint to harmonize photo with the site palette */}
         <div className="absolute inset-0 bg-bone/15 mix-blend-lighten pointer-events-none" />
 
-        {/* main gradient: solid bone on the left fades to image on the right */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -73,22 +61,21 @@ export function Hero({
           }}
         />
 
-        {/* soft top + bottom vignette for header legibility */}
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-bone/80 to-transparent pointer-events-none" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-bone/70 to-transparent pointer-events-none" />
       </div>
 
-      {/* foreground content */}
       <div className="relative z-10 pt-32 md:pt-40 container-edge">
-        <div className="flex items-center justify-end pb-12 md:pb-16">
-          <DimensionLabel
-            label="Fortaleza · São Paulo · Alphaville"
-            className="hidden md:inline-flex !text-ink-2"
-          />
-        </div>
+        {dimensionLabel && (
+          <div className="flex items-center justify-end pb-12 md:pb-16">
+            <DimensionLabel
+              label={dimensionLabel}
+              className="hidden md:inline-flex !text-ink-2"
+            />
+          </div>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-10 items-start min-h-[60svh]">
-          {/* left column: editorial copy on bone tint */}
           <div className="md:col-span-7">
             {eyebrow && (
               <p className="font-mono-label text-stone mb-6 reveal-word">
@@ -96,9 +83,11 @@ export function Hero({
               </p>
             )}
 
-            <h1 className="font-display text-[clamp(2.75rem,7vw,6.5rem)] leading-[0.95] tracking-tight text-ink">
-              {headline}
-            </h1>
+            {headline && (
+              <h1 className="font-display text-[clamp(2.75rem,7vw,6.5rem)] leading-[0.95] tracking-tight text-ink">
+                {headline}
+              </h1>
+            )}
 
             {body && (
               <p className="mt-10 max-w-md text-base md:text-lg text-ink-2 fade-up">
@@ -106,30 +95,31 @@ export function Hero({
               </p>
             )}
 
-            <div className="mt-10 flex flex-wrap items-center gap-4 fade-up">
-              {ctaPrimary && (
-                <CTA
-                  href={ctaPrimary.href}
-                  variant="primary"
-                  external={ctaPrimary.external}
-                >
-                  {ctaPrimary.label}
-                </CTA>
-              )}
-              {ctaSecondary && (
-                <CTA
-                  href={ctaSecondary.href}
-                  variant="ghost"
-                  external={ctaSecondary.external}
-                >
-                  {ctaSecondary.label}
-                </CTA>
-              )}
-            </div>
+            {(ctaPrimary || ctaSecondary) && (
+              <div className="mt-10 flex flex-wrap items-center gap-4 fade-up">
+                {ctaPrimary && (
+                  <CTA
+                    href={ctaPrimary.href}
+                    variant="primary"
+                    external={ctaPrimary.external}
+                  >
+                    {ctaPrimary.label}
+                  </CTA>
+                )}
+                {ctaSecondary && (
+                  <CTA
+                    href={ctaSecondary.href}
+                    variant="ghost"
+                    external={ctaSecondary.external}
+                  >
+                    {ctaSecondary.label}
+                  </CTA>
+                )}
+              </div>
+            )}
           </div>
 
-          {/* right column: floating "projeto em destaque" pill over image */}
-          {heroFeature.projectName && (
+          {feature?.projectName && (
             <div className="md:col-span-5 relative md:min-h-[55svh]">
               <div className="md:absolute md:bottom-0 md:right-0 flex flex-col items-start md:items-end gap-3 fade-up">
                 <div className="font-mono-label text-ink flex items-center gap-2">
@@ -139,10 +129,12 @@ export function Hero({
 
                 <div className="inline-flex items-center gap-3 rounded-full bg-bone/60 backdrop-blur-md px-4 py-2 font-mono-label shadow-soft ring-1 ring-bone/40">
                   <span className="block h-1.5 w-1.5 rounded-full bg-sage-dark" />
-                  <span className="text-ink">{heroFeature.projectName}</span>
-                  <span className="text-ink-2/80">
-                    · {heroFeature.projectCity}
-                  </span>
+                  <span className="text-ink">{feature.projectName}</span>
+                  {feature.projectCity && (
+                    <span className="text-ink-2/80">
+                      · {feature.projectCity}
+                    </span>
+                  )}
                 </div>
               </div>
             </div>

@@ -65,11 +65,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-x-10 items-end">
           <div className="md:col-span-7">
-            <SectionLabel
-              ordinal={String(idx + 1).padStart(2, "0")}
-              label={categoryLabels[project.category]}
-              total={String(projects.length).padStart(2, "0")}
-            />
+            <SectionLabel label={categoryLabels[project.category]} />
             <h1 className="mt-6 font-display text-[clamp(2.5rem,7vw,6rem)] leading-[0.95] tracking-tight text-ink max-w-[14ch]">
               {project.name}.
             </h1>
@@ -121,7 +117,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       {/* description */}
       {project.description && (
         <section className="container-edge py-16 md:py-24 reveal-on-scroll">
-          <SectionLabel ordinal="02" label="Sobre o projeto" />
+          <SectionLabel label="Sobre o projeto" />
           <div className="mt-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             <div className="md:col-span-2 hidden md:block pt-4">
               <Hairline reveal />
@@ -136,7 +132,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       {/* gallery */}
       {project.gallery && project.gallery.length > 0 && (
         <section className="container-edge py-16 md:py-24 reveal-on-scroll">
-          <SectionLabel ordinal="03" label="Galeria" />
+          <SectionLabel label="Galeria" />
           <div className="mt-10">
             <Hairline reveal />
           </div>

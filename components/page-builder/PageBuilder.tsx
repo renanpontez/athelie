@@ -133,13 +133,7 @@ function HeroBlock({ block }: { block: HeroSection }) {
 }
 
 function ManifestoBlock({ block }: { block: ManifestoSection }) {
-  return (
-    <Manifesto
-      ordinal={block.ordinal}
-      label={block.label}
-      segments={block.segments}
-    />
-  );
+  return <Manifesto label={block.label} body={block.body} />;
 }
 
 function FeaturedProjectsBlock({ block }: { block: FeaturedProjectsSection }) {
@@ -154,11 +148,8 @@ function FeaturedProjectsBlock({ block }: { block: FeaturedProjectsSection }) {
   }));
   return (
     <FeaturedProjects
-      ordinal={block.ordinal}
       label={block.label}
-      headingText={
-        block.heading?.[0]?.children?.map((c) => c.text).join(" ") ?? undefined
-      }
+      heading={richHeadlineToReact(block.heading)}
       projects={mapped.length > 0 ? mapped : undefined}
       viewAllHref={block.viewAllLink?.href}
       viewAllLabel={block.viewAllLink?.label}
@@ -169,14 +160,12 @@ function FeaturedProjectsBlock({ block }: { block: FeaturedProjectsSection }) {
 function ServicesBlock({ block }: { block: ServicesSection }) {
   const mapped = (block.services ?? []).map((s) => ({
     slug: s.slug,
-    ordinal: s.ordinal,
     name: s.name,
     tagline: s.tagline,
     description: s.description,
   }));
   return (
     <Services
-      ordinal={block.ordinal}
       label={block.label}
       heading={richHeadlineToReact(block.heading)}
       intro={block.intro}
@@ -195,7 +184,6 @@ function FoundersBlock({ block }: { block: FoundersSection }) {
     .map((f) => ({ name: f.name, role: f.role, bio: f.bio }));
   return (
     <Founders
-      ordinal={block.ordinal}
       label={block.label}
       heading={richHeadlineToReact(block.heading)}
       intro={block.intro}
@@ -208,7 +196,6 @@ function FoundersBlock({ block }: { block: FoundersSection }) {
 function ProcessBlock({ block }: { block: ProcessSection }) {
   return (
     <Process
-      ordinal={block.ordinal}
       label={block.label}
       heading={richHeadlineToReact(block.heading)}
       steps={block.steps}
@@ -225,10 +212,11 @@ function ContactCtaBlock({
 }) {
   return (
     <ContactCTA
-      ordinal={block.ordinal}
       label={block.label}
       heading={richHeadlineToReact(block.heading)}
       intro={block.intro}
+      ctaPrimaryLabel={block.ctaPrimary?.label}
+      ctaSecondaryLabel={block.ctaSecondary?.label}
       contact={
         settings
           ? {

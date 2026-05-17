@@ -1,17 +1,20 @@
 /**
- * One-time migration: seed Sanity with the data currently in lib/content.ts.
+ * Migration: seed Sanity with the data currently in lib/content.ts.
  *
  * Usage:
- *   1. Create the Sanity project (see plan §8).
- *   2. Put these in .env.local:
- *        NEXT_PUBLIC_SANITY_PROJECT_ID=...
- *        NEXT_PUBLIC_SANITY_DATASET=production
- *        SANITY_WRITE_TOKEN=...  (Editor role; create at sanity.io → Project → API → Tokens)
- *   3. From site/: npx tsx scripts/migrate-to-sanity.ts
+ *   1. Put the env vars in .env.local (NEXT_PUBLIC_SANITY_PROJECT_ID,
+ *      NEXT_PUBLIC_SANITY_DATASET, SANITY_WRITE_TOKEN).
+ *   2. From site/: npx tsx scripts/migrate-to-sanity.ts
  *
  * Idempotent: uses `createOrReplace` so re-runs overwrite by deterministic _id.
+ *
+ * Schema notes (post-cleanup):
+ *   - Section blocks no longer have `ordinal`.
+ *   - Manifesto section no longer has `segments`; uses `body: richHeadline`.
+ *   - `heading`, `intro`, `viewAllLink`, ctaPrimary/Secondary are populated.
  */
 import { createClient } from "@sanity/client";
+import { randomUUID } from "node:crypto";
 import {
   studio,
   navigation,
@@ -20,7 +23,6 @@ import {
   founders,
   pillars,
   processSteps,
-  heroFeature,
 } from "../lib/content";
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
@@ -43,6 +45,34 @@ const client = createClient({
 const id = (prefix: string, slug: string) =>
   `${prefix}.${slug.replace(/[^a-z0-9-]/gi, "-")}`;
 
+type Span = { plain?: string; italic?: string };
+
+/**
+ * Build a richHeadline portable-text array from an ordered list of plain/italic
+ * segments. One block per call (== one visual line). For multi-line headings
+ * call rh() once per line and concat.
+ */
+function rh(...segments: Span[]) {
+  return [
+    {
+      _key: randomUUID().slice(0, 8),
+      _type: "block",
+      style: "normal",
+      markDefs: [],
+      children: segments.map((seg) => ({
+        _key: randomUUID().slice(0, 8),
+        _type: "span",
+        text: seg.italic ?? seg.plain ?? "",
+        marks: seg.italic ? ["italicAccent"] : [],
+      })),
+    },
+  ];
+}
+
+function rhMulti(...lines: Span[][]) {
+  return lines.flatMap((line) => rh(...line));
+}
+
 async function upsert(doc: { _id: string; _type: string; [k: string]: unknown }) {
   const res = await client.createOrReplace(doc);
   console.log(`  ✓ ${doc._type} · ${doc._id}`);
@@ -54,7 +84,6 @@ async function upsert(doc: { _id: string; _type: string; [k: string]: unknown })
 async function migrate() {
   console.log(`→ Migrating to ${projectId}/${dataset}\n`);
 
-  // 1. site settings (singleton)
   console.log("Site settings:");
   await upsert({
     _id: "siteSettings",
@@ -72,16 +101,24 @@ async function migrate() {
     instagramHandle: studio.instagramHandle,
   });
 
-  // 2. navigation (singleton)
   console.log("\nNavigation:");
   await upsert({
     _id: "navigation",
     _type: "navigation",
-    primary: navigation.map((n) => ({ _type: "navLink", _key: n.href, label: n.label, href: n.href })),
-    footer: navigation.map((n) => ({ _type: "navLink", _key: `f-${n.href}`, label: n.label, href: n.href })),
+    primary: navigation.map((n) => ({
+      _type: "navLink",
+      _key: n.href,
+      label: n.label,
+      href: n.href,
+    })),
+    footer: navigation.map((n) => ({
+      _type: "navLink",
+      _key: `f-${n.href}`,
+      label: n.label,
+      href: n.href,
+    })),
   });
 
-  // 3. projects
   console.log("\nProjects:");
   const projectRefs: Record<string, string> = {};
   for (const p of projects) {
@@ -99,14 +136,12 @@ async function migrate() {
       scope: p.scope,
       summary: p.summary,
       description: p.description,
-      // Images: stored as remote URLs in lib/content.ts. Sanity needs uploaded assets.
-      // We seed the alt text + a marker; uploading remote URLs as assets is left manual
-      // (or extend this script with client.assets.upload).
+      // Images are still remote URLs in lib/content.ts. Upload assets manually
+      // in Studio (drag-drop) or extend this with client.assets.upload.
       imageAlt: p.imageAlt,
     });
   }
 
-  // 4. services
   console.log("\nServices:");
   const serviceRefs: Record<string, string> = {};
   for (const s of services) {
@@ -117,23 +152,31 @@ async function migrate() {
       _type: "service",
       name: s.name,
       slug: { _type: "slug", current: s.slug },
-      ordinal: s.ordinal,
       tagline: s.tagline,
       description: s.description,
       forWho: s.forWho,
       includes: s.includes,
-      steps: s.steps?.map((step, i) => ({ _key: `step-${i}`, _type: "step", ...step })),
-      differentiators: s.differentiators?.map((d, i) => ({ _key: `d-${i}`, _type: "differentiator", ...d })),
+      steps: s.steps?.map((step, i) => ({
+        _key: `step-${i}`,
+        _type: "step",
+        ...step,
+      })),
+      differentiators: s.differentiators?.map((d, i) => ({
+        _key: `d-${i}`,
+        _type: "differentiator",
+        ...d,
+      })),
       faq: s.faq?.map((f, i) => ({ _key: `faq-${i}`, _type: "faq", ...f })),
-      relatedProjects: s.relatedProjectSlugs?.map((sl) =>
-        projectRefs[sl]
-          ? { _type: "reference", _ref: projectRefs[sl], _key: `ref-${sl}` }
-          : null
-      ).filter(Boolean),
+      relatedProjects: s.relatedProjectSlugs
+        ?.map((sl) =>
+          projectRefs[sl]
+            ? { _type: "reference", _ref: projectRefs[sl], _key: `ref-${sl}` }
+            : null
+        )
+        .filter(Boolean),
     });
   }
 
-  // 5. founders
   console.log("\nFounders:");
   const founderRefs: string[] = [];
   for (let i = 0; i < founders.length; i++) {
@@ -150,24 +193,19 @@ async function migrate() {
     });
   }
 
-  // 6. pillars
   console.log("\nPillars:");
-  const pillarRefs: string[] = [];
   for (let i = 0; i < pillars.length; i++) {
     const p = pillars[i];
     const _id = id("pillar", p.name.toLowerCase().replace(/\s+/g, "-"));
-    pillarRefs.push(_id);
     await upsert({
       _id,
       _type: "pillar",
-      ordinal: p.ordinal,
       name: p.name,
       description: p.description,
       order: i,
     });
   }
 
-  // 7. home page (page builder)
   console.log("\nHome page:");
   await upsert({
     _id: "page.home",
@@ -179,19 +217,44 @@ async function migrate() {
         _key: "hero",
         _type: "heroSection",
         eyebrow: "Estúdio de arquitetura de interiores",
-        body:
-          "Projetos residenciais, comerciais e corporativos pensados nos detalhes, equilibrando estética, funcionalidade e conforto em ambientes feitos para durar.",
-        featuredProject: projectRefs[heroFeature.projectName.toLowerCase().replace(/\s+/g, "-")] ??
-          projectRefs["escritorio-pwr"]
+        headline: rhMulti(
+          [{ plain: "Arquitetura" }],
+          [{ italic: "que conta" }],
+          [{ plain: "a sua história." }]
+        ),
+        body: "Projetos residenciais, comerciais e corporativos pensados nos detalhes, equilibrando estética, funcionalidade e conforto em ambientes feitos para durar.",
+        ctaPrimary: { label: "Ver projetos", href: "#projetos" },
+        ctaSecondary: { label: "Fazer briefing", href: studio.whatsapp },
+        featuredProject: projectRefs["escritorio-pwr"]
           ? { _type: "reference", _ref: projectRefs["escritorio-pwr"] }
           : undefined,
       },
-      { _key: "manifesto", _type: "manifestoSection", ordinal: "01", label: "Manifesto" },
+      {
+        _key: "manifesto",
+        _type: "manifestoSection",
+        label: "Manifesto",
+        body: rh(
+          { plain: "Cada projeto é uma oportunidade de " },
+          { italic: "contar uma história única," },
+          {
+            plain:
+              " unindo estética, funcionalidade e conforto em ambientes feitos para durar.",
+          }
+        ),
+      },
       {
         _key: "projects",
         _type: "featuredProjectsSection",
-        ordinal: "02",
         label: "Projetos selecionados",
+        heading: rh(
+          { plain: "Casas, lojas e escritórios feitos com " },
+          { italic: "pensamento" },
+          { plain: "." }
+        ),
+        viewAllLink: {
+          label: "Ver portfólio completo",
+          href: "/projetos",
+        },
         projects: projects.slice(0, 4).map((p, i) => ({
           _type: "reference",
           _key: `p-${i}`,
@@ -201,8 +264,14 @@ async function migrate() {
       {
         _key: "services",
         _type: "servicesSection",
-        ordinal: "03",
         label: "Serviços",
+        heading: rh(
+          { plain: "Três formas de trabalhar " },
+          { italic: "juntos" },
+          { plain: "." }
+        ),
+        intro:
+          "Da consultoria pontual ao acompanhamento integral de obra. Escolhemos juntos o formato que melhor se adapta ao seu projeto.",
         services: services.map((s, i) => ({
           _type: "reference",
           _key: `s-${i}`,
@@ -212,8 +281,14 @@ async function migrate() {
       {
         _key: "founders",
         _type: "foundersSection",
-        ordinal: "04",
         label: "Sócias",
+        heading: rh(
+          { plain: "Duas " },
+          { italic: "visões" },
+          { plain: " que se completam, uma só intenção." }
+        ),
+        intro:
+          "A Atheliê nasceu da união entre delicadeza criativa e rigor de processo. Combinamos talentos únicos para transformar espaços em lugares que refletem personalidade e história.",
         founders: founderRefs.map((ref, i) => ({
           _type: "reference",
           _key: `f-${i}`,
@@ -223,15 +298,29 @@ async function migrate() {
       {
         _key: "process",
         _type: "processSection",
-        ordinal: "05",
         label: "Processo",
-        steps: processSteps.map((s, i) => ({ _key: `st-${i}`, _type: "step", ...s })),
+        heading: rh({
+          plain: "Como caminhamos com você, do briefing às chaves.",
+        }),
+        steps: processSteps.map((s, i) => ({
+          _key: `st-${i}`,
+          _type: "step",
+          ...s,
+        })),
       },
       {
         _key: "contact",
         _type: "contactCtaSection",
-        ordinal: "06",
         label: "Contato",
+        heading: rh(
+          { plain: "Vamos " },
+          { italic: "conversar" },
+          { plain: "?" }
+        ),
+        intro:
+          "Estamos prontas para ouvir suas ideias, desenhar projetos e realizar sonhos. Conte sobre o seu espaço e a gente responde em até um dia útil.",
+        ctaPrimary: { label: "Iniciar conversa", href: studio.whatsapp },
+        ctaSecondary: { label: "Enviar e-mail", href: `mailto:${studio.email}` },
       },
     ],
   });

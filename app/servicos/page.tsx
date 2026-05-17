@@ -25,7 +25,7 @@ export default function ServicosPage() {
           />
         </div>
 
-        <SectionLabel ordinal="01" label="Serviços" total="07" />
+        <SectionLabel label="Serviços" />
         <h1 className="mt-6 font-display text-[clamp(2.5rem,7vw,6rem)] leading-[0.95] tracking-tight text-ink max-w-[15ch]">
           Três formas de trabalhar{" "}
           <span className="italic text-sage-dark">juntos</span>.
@@ -40,7 +40,7 @@ export default function ServicosPage() {
       {/* comparativo rápido */}
       <section className="bg-bone-2 py-16 md:py-24 reveal-on-scroll">
         <div className="container-edge">
-          <SectionLabel ordinal="02" label="Comparativo" />
+          <SectionLabel label="Comparativo" />
           <div className="mt-8">
             <Hairline reveal />
           </div>
@@ -94,7 +94,7 @@ export default function ServicosPage() {
 
       {/* deeper cards */}
       <section className="container-edge py-16 md:py-24 reveal-on-scroll">
-        <SectionLabel ordinal="03" label="Em detalhe" />
+        <SectionLabel label="Em detalhe" />
         <div className="mt-12 space-y-20 md:space-y-32">
           {services.map((s) => (
             <article
