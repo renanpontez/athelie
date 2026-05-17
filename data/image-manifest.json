@@ -1,0 +1,156 @@
+[
+  {
+    "target": "project · apartamento-beira-mar · cover",
+    "docId": "project.apartamento-beira-mar",
+    "field": "image",
+    "alt": "Sala de estar com vista para o mar, paleta neutra e mobiliário curvo",
+    "source": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "target": "project · apartamento-beira-mar · gallery[0]",
+    "docId": "project.apartamento-beira-mar",
+    "field": "gallery[0]",
+    "alt": "Sala íntima com sofá curvo e luz natural",
+    "source": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "target": "project · apartamento-beira-mar · gallery[1]",
+    "docId": "project.apartamento-beira-mar",
+    "field": "gallery[1]",
+    "alt": "Vista panorâmica do living",
+    "source": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "target": "project · apartamento-beira-mar · gallery[2]",
+    "docId": "project.apartamento-beira-mar",
+    "field": "gallery[2]",
+    "alt": "Quarto principal em tons de areia",
+    "source": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "target": "project · apartamento-beira-mar · gallery[3]",
+    "docId": "project.apartamento-beira-mar",
+    "field": "gallery[3]",
+    "alt": "Detalhe de mesa lateral em madeira",
+    "source": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "target": "project · escritorio-pwr · cover",
+    "docId": "project.escritorio-pwr",
+    "field": "image",
+    "alt": "Escritório corporativo aberto com mesa de madeira clara e iluminação difusa",
+    "source": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "target": "project · escritorio-pwr · gallery[0]",
+    "docId": "project.escritorio-pwr",
+    "field": "gallery[0]",
+    "alt": "Sala de reunião com painel acústico",
+    "source": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "target": "project · escritorio-pwr · gallery[1]",
+    "docId": "project.escritorio-pwr",
+    "field": "gallery[1]",
+    "alt": "Posto de trabalho aberto",
+    "source": "https://images.unsplash.com/photo-1497215842964-222b430dc094?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "target": "project · escritorio-pwr · gallery[2]",
+    "docId": "project.escritorio-pwr",
+    "field": "gallery[2]",
+    "alt": "Lounge corporativo",
+    "source": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "target": "project · consultorio-rafaela-holanda · cover",
+    "docId": "project.consultorio-rafaela-holanda",
+    "field": "image",
+    "alt": "Consultório com poltrona elegante, parede em tom areia e luz suave",
+    "source": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "target": "project · consultorio-rafaela-holanda · gallery[0]",
+    "docId": "project.consultorio-rafaela-holanda",
+    "field": "gallery[0]",
+    "alt": "Recepção do consultório",
+    "source": "https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "target": "project · consultorio-rafaela-holanda · gallery[1]",
+    "docId": "project.consultorio-rafaela-holanda",
+    "field": "gallery[1]",
+    "alt": "Sala de atendimento",
+    "source": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "target": "project · aviarte-sp · cover",
+    "docId": "project.aviarte-sp",
+    "field": "image",
+    "alt": "Loja com prateleiras curvas, paleta quente e iluminação focal",
+    "source": "https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "target": "project · aviarte-sp · gallery[0]",
+    "docId": "project.aviarte-sp",
+    "field": "gallery[0]",
+    "alt": "Vitrine principal",
+    "source": "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "target": "project · aviarte-sp · gallery[1]",
+    "docId": "project.aviarte-sp",
+    "field": "gallery[1]",
+    "alt": "Detalhe das prateleiras curvas",
+    "source": "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "target": "project · capital-upgrade-alphaville · cover",
+    "docId": "project.capital-upgrade-alphaville",
+    "field": "image",
+    "alt": "Sala corporativa com painéis ripados de madeira e iluminação cênica",
+    "source": "https://images.unsplash.com/photo-1618219944342-824e40a13285?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "target": "project · consultorio-transfer-psicologia · cover",
+    "docId": "project.consultorio-transfer-psicologia",
+    "field": "image",
+    "alt": "Sala de atendimento com poltronas confortáveis e tons quentes",
+    "source": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "target": "project · loja-engenhoca-parque · cover",
+    "docId": "project.loja-engenhoca-parque",
+    "field": "image",
+    "alt": "Loja conceitual com mobiliário lúdico e cores vivas",
+    "source": "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "target": "project · apartamento-cozinha-verde · cover",
+    "docId": "project.apartamento-cozinha-verde",
+    "field": "image",
+    "alt": "Cozinha com armários verdes e bancada de mármore",
+    "source": "https://images.unsplash.com/photo-1565182999561-18d7dc61c393?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "target": "project · apartamento-briza · cover",
+    "docId": "project.apartamento-briza",
+    "field": "image",
+    "alt": "Sala leve e ventilada com mobiliário em fibras naturais",
+    "source": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "target": "project · projeto-pequena-magia · cover",
+    "docId": "project.projeto-pequena-magia",
+    "field": "image",
+    "alt": "Quarto infantil com paleta suave e mobiliário sob medida",
+    "source": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600&q=80&auto=format&fit=crop"
+  },
+  {
+    "target": "page.home · founders section · portrait",
+    "docId": "page.home",
+    "field": "sections[_key==\"founders\"].portrait",
+    "alt": "Andressa e Tainah Hora, sócias da Atheliê Arquitetura",
+    "source": "/Users/renan/Desktop/_ideas/athelie/site/public/founders.png"
+  }
+]
