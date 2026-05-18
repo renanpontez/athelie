@@ -29,8 +29,7 @@ type Props = {
  */
 // Temporary visual override while we evaluate the hero treatment.
 // Move to Sanity (page.sections[0].backgroundImage) once approved.
-const HERO_IMAGE_OVERRIDE =
-  "https://lh3.googleusercontent.com/sitesv/AA5AbUAe5YFBcmaYKOcos9YI_1BrBGZWNLbtr6JaIl4t6vJypgYOMztc25TrbQk2roFG9QaQgt9XRdC5wc8vVM8qB5WiER3DEnOkSIrmbaFJ_sH_qKS5X-752F808vUO_E0A1nP6W_XRK38SJDERuquii6ucCae1vFp5o9hdRYiWiwUKhrP9FRES1b6CBe0=w16383";
+const HERO_IMAGE_OVERRIDE = "/rafaholanda.jpg";
 
 export function Hero({
   headline,
