@@ -18,7 +18,7 @@ export function Manifesto({ label, body }: Props) {
 
   let wordIndex = 0;
   return (
-    <section className="container-edge pt-32 md:pt-48 pb-12 md:pb-20 manifesto-section">
+    <section className="container-edge pt-20 md:pt-28 pb-12 md:pb-20 manifesto-section">
       {label && <SectionLabel label={label} />}
       <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
         <div className="md:col-span-2 hidden md:block pt-6">
