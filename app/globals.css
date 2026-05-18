@@ -13,8 +13,8 @@
   --color-bone-2: #eae5dc;
   --color-ink: #1c1c1a;
   --color-ink-2: #3a3a36;
-  --color-sage: #7a8068;
-  --color-sage-dark: #5e634f;
+  --color-sage: #c4b0b0;
+  --color-sage-dark: #766361;
   --color-stone: #a39e94;
 
   --font-display: "Cormorant Garamond", "PP Editorial Old", "Tiempos Headline", serif;
@@ -43,13 +43,13 @@
   --secondary-foreground: #1c1c1a;
   --muted: #eae5dc;
   --muted-foreground: #3a3a36;
-  --accent: #7a8068;
+  --accent: #766361;
   --accent-foreground: #f4f1ec;
   --destructive: #b3261e;
   --destructive-foreground: #f4f1ec;
   --border: rgba(163, 158, 148, 0.35);
   --input: rgba(163, 158, 148, 0.4);
-  --ring: #7a8068;
+  --ring: #766361;
   --radius: 0.75rem;
 }
 
