@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState, type CSSProperties } from "react";
 import { cn } from "@/lib/utils";
 import { ArchIcon } from "@/components/ui/ArchIcon";
@@ -11,8 +12,16 @@ import { navigation, studio } from "@/lib/content";
 const reveal = (i: number) =>
   ({ "--reveal-i": i } as CSSProperties);
 
+// Active when the current pathname matches the link or is nested under it.
+// Root "/" is matched exactly so it doesn't light up on every page.
+function isNavActive(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(href + "/");
+}
+
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname() ?? "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -46,16 +55,25 @@ export function Header() {
           {/* right group: nav + conversar pill */}
           <div className="hidden md:flex items-center gap-10">
             <nav className="flex items-center gap-8" aria-label="primary">
-              {navigation.map((item, i) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="nav-reveal pretty-link font-mono-label text-ink"
-                  style={reveal(i + 2)}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {navigation.map((item, i) => {
+                const active = isNavActive(pathname, item.href);
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    aria-current={active ? "page" : undefined}
+                    className={cn(
+                      "nav-reveal pretty-link font-mono-label transition-colors duration-300",
+                      active
+                        ? "text-sage-dark"
+                        : "text-ink hover:text-sage-dark"
+                    )}
+                    style={reveal(i + 2)}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
             </nav>
 
             <a
