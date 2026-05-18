@@ -29,7 +29,7 @@ type Props = {
  */
 // Temporary visual override while we evaluate the hero treatment.
 // Move to Sanity (page.sections[0].backgroundImage) once approved.
-const HERO_IMAGE_OVERRIDE = "/rafaholanda.jpg";
+const HERO_IMAGE_OVERRIDE = "/rafaholanda.webp";
 
 export function Hero({
   headline,
