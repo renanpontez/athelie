@@ -56,7 +56,7 @@ export function FeaturedProjects({
         <div>
           {label && <SectionLabel label={label} />}
           {heading && (
-            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] max-w-[15ch] reveal-word">
+            <h2 className="mt-6 font-display text-[clamp(2rem,4.5vw,3.5rem)] leading-[1.05] max-w-[26ch] reveal-word">
               {heading}
             </h2>
           )}

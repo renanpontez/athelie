@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { CTA } from "@/components/ui/CTA";
-import { DimensionLabel } from "@/components/ui/DimensionLabel";
 
 type Feature = {
   image: string;
@@ -24,26 +23,31 @@ type Props = {
 };
 
 /**
- * Athelie hero — full-bleed background image with editorial copy on the left
- * fading from bone. No hardcoded fallbacks: everything visible comes from
- * Sanity (or from `page.backup.tsx` if you need the legacy reference).
+ * Athelie hero — full-bleed background image with a single column of
+ * centered editorial copy and one CTA. Data is Sanity-driven; `body` is
+ * rendered as a short tagline beneath the headline.
  */
+// Temporary visual override while we evaluate the hero treatment.
+// Move to Sanity (page.sections[0].backgroundImage) once approved.
+const HERO_IMAGE_OVERRIDE =
+  "https://lh3.googleusercontent.com/sitesv/AA5AbUAe5YFBcmaYKOcos9YI_1BrBGZWNLbtr6JaIl4t6vJypgYOMztc25TrbQk2roFG9QaQgt9XRdC5wc8vVM8qB5WiER3DEnOkSIrmbaFJ_sH_qKS5X-752F808vUO_E0A1nP6W_XRK38SJDERuquii6ucCae1vFp5o9hdRYiWiwUKhrP9FRES1b6CBe0=w16383";
+
 export function Hero({
-  eyebrow,
   headline,
   body,
   ctaPrimary,
-  ctaSecondary,
-  dimensionLabel,
   feature,
 }: Props) {
+  const imageSrc = HERO_IMAGE_OVERRIDE || feature?.image;
+  const imageAlt = feature?.imageAlt ?? "";
+
   return (
     <section className="hero relative min-h-[100svh] overflow-hidden">
       <div className="absolute inset-0 bg-bone-2">
-        {feature?.image && (
+        {imageSrc && (
           <Image
-            src={feature.image}
-            alt={feature.imageAlt}
+            src={imageSrc}
+            alt={imageAlt}
             fill
             priority
             sizes="100vw"
@@ -51,95 +55,36 @@ export function Hero({
           />
         )}
 
-        <div className="absolute inset-0 bg-bone/15 mix-blend-lighten pointer-events-none" />
-
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(95deg, var(--color-bone) 0%, var(--color-bone) 28%, color-mix(in srgb, var(--color-bone) 85%, transparent) 48%, color-mix(in srgb, var(--color-bone) 35%, transparent) 70%, color-mix(in srgb, var(--color-bone) 10%, transparent) 100%)",
-          }}
-        />
+        <div className="absolute inset-0 bg-bone/55 pointer-events-none" />
 
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-bone/80 to-transparent pointer-events-none" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-bone/70 to-transparent pointer-events-none" />
       </div>
 
-      <div className="relative z-10 pt-32 md:pt-40 container-edge">
-        {dimensionLabel && (
-          <div className="flex items-center justify-end pb-12 md:pb-16">
-            <DimensionLabel
-              label={dimensionLabel}
-              className="hidden md:inline-flex !text-ink-2"
-            />
-          </div>
+      <div className="relative z-10 min-h-[100svh] container-edge flex flex-col items-center justify-center text-center pt-32 pb-20">
+        {headline && (
+          <h1 className="font-display text-[clamp(3.25rem,7vw,5.5rem)] leading-[0.95] tracking-tight text-ink max-w-[18ch]">
+            {headline}
+          </h1>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-10 items-start min-h-[60svh]">
-          <div className="md:col-span-7">
-            {eyebrow && (
-              <p className="font-mono-label text-stone mb-6 reveal-word">
-                <span>{eyebrow}</span>
-              </p>
-            )}
+        {body && (
+          <p className="mt-5 font-mono-label text-ink-2 tracking-[0.32em] uppercase text-[0.7rem] md:text-xs max-w-[56ch] line-clamp-1 fade-up">
+            {body}
+          </p>
+        )}
 
-            {headline && (
-              <h1 className="font-display text-[clamp(2.75rem,7vw,6.5rem)] leading-[0.95] tracking-tight text-ink">
-                {headline}
-              </h1>
-            )}
-
-            {body && (
-              <p className="mt-10 max-w-md text-base md:text-lg text-ink-2 fade-up">
-                {body}
-              </p>
-            )}
-
-            {(ctaPrimary || ctaSecondary) && (
-              <div className="mt-10 flex flex-wrap items-center gap-4 fade-up">
-                {ctaPrimary && (
-                  <CTA
-                    href={ctaPrimary.href}
-                    variant="primary"
-                    external={ctaPrimary.external}
-                  >
-                    {ctaPrimary.label}
-                  </CTA>
-                )}
-                {ctaSecondary && (
-                  <CTA
-                    href={ctaSecondary.href}
-                    variant="ghost"
-                    external={ctaSecondary.external}
-                  >
-                    {ctaSecondary.label}
-                  </CTA>
-                )}
-              </div>
-            )}
+        {ctaPrimary && (
+          <div className="mt-10 fade-up">
+            <CTA
+              href={ctaPrimary.href}
+              variant="primary"
+              external={ctaPrimary.external}
+            >
+              {ctaPrimary.label}
+            </CTA>
           </div>
-
-          {feature?.projectName && (
-            <div className="md:col-span-5 relative md:min-h-[55svh]">
-              <div className="md:absolute md:bottom-0 md:right-0 flex flex-col items-start md:items-end gap-3 fade-up">
-                <div className="font-mono-label text-ink flex items-center gap-2">
-                  <span className="h-px w-6 bg-ink/40" />
-                  <span>Projeto em destaque</span>
-                </div>
-
-                <div className="inline-flex items-center gap-3 rounded-full bg-bone/60 backdrop-blur-md px-4 py-2 font-mono-label shadow-soft ring-1 ring-bone/40">
-                  <span className="block h-1.5 w-1.5 rounded-full bg-sage-dark" />
-                  <span className="text-ink">{feature.projectName}</span>
-                  {feature.projectCity && (
-                    <span className="text-ink-2/80">
-                      · {feature.projectCity}
-                    </span>
-                  )}
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
+        )}
       </div>
     </section>
   );
