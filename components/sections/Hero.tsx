@@ -23,9 +23,10 @@ type Props = {
 };
 
 /**
- * Athelie hero — full-bleed background image with a single column of
- * centered editorial copy and one CTA. Data is Sanity-driven; `body` is
- * rendered as a short tagline beneath the headline.
+ * Athelie hero — full-bleed background image with left-aligned editorial
+ * copy and one CTA. A horizontal bone gradient washes the left side for
+ * legibility and fades toward the image on the right. Data is Sanity-driven;
+ * `body` is rendered as a short tagline beneath the headline.
  */
 // Temporary visual override while we evaluate the hero treatment.
 // Move to Sanity (page.sections[0].backgroundImage) once approved.
@@ -54,21 +55,27 @@ export function Hero({
           />
         )}
 
-        <div className="absolute inset-0 bg-bone/55 pointer-events-none" />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(90deg, color-mix(in srgb, var(--color-bone) 80%, transparent) 0%, color-mix(in srgb, var(--color-bone) 60%, transparent) 45%, color-mix(in srgb, var(--color-bone) 20%, transparent) 100%)",
+          }}
+        />
 
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-bone/80 to-transparent pointer-events-none" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-bone/70 to-transparent pointer-events-none" />
       </div>
 
-      <div className="relative z-10 min-h-[100svh] container-edge flex flex-col items-center justify-center text-center pt-32 pb-20">
+      <div className="relative z-10 min-h-[100svh] container-edge flex flex-col items-start justify-center text-left pt-32 pb-20">
         {headline && (
-          <h1 className="font-display text-[clamp(3.25rem,7vw,5.5rem)] leading-[0.95] tracking-tight text-ink max-w-[18ch]">
+          <h1 className="font-display text-[clamp(3rem,6.5vw,5.5rem)] leading-[0.95] tracking-tight text-ink max-w-[16ch]">
             {headline}
           </h1>
         )}
 
         {body && (
-          <p className="mt-5 font-mono-label text-ink-2 tracking-[0.32em] uppercase text-[0.7rem] md:text-xs max-w-[56ch] line-clamp-1 fade-up">
+          <p className="mt-5 font-mono-label text-ink-2 tracking-[0.32em] uppercase text-[0.7rem] md:text-xs max-w-[64ch] line-clamp-2 fade-up">
             {body}
           </p>
         )}
