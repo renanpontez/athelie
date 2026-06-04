@@ -6,44 +6,93 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Hairline } from "@/components/ui/Hairline";
 import { ArchIcon } from "@/components/ui/ArchIcon";
 import { CTA } from "@/components/ui/CTA";
-import { DimensionLabel } from "@/components/ui/DimensionLabel";
+import { sanityFetch } from "@/sanity/client";
 import {
-  services,
-  projects,
-  categoryLabels,
-  studio,
-} from "@/lib/content";
+  SERVICE_DETAIL_QUERY,
+  SERVICE_SLUGS_QUERY,
+  SERVICES_INDEX_QUERY,
+  SITE_SETTINGS_QUERY,
+} from "@/sanity/queries";
+import { urlFor } from "@/sanity/lib/image";
+import { buildMetadata } from "@/sanity/lib/metadata";
+import { projectId } from "@/sanity/env";
+import type { ServiceDetail, SiteSettings } from "@/sanity/types";
+
+export const revalidate = 3600;
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
-export function generateStaticParams() {
-  return services.map((s) => ({ slug: s.slug }));
+function safeImageUrl(image: unknown, width = 1600): string {
+  if (!image || typeof image !== "object") return "";
+  const asAny = image as { asset?: unknown };
+  if (!asAny.asset) return "";
+  try {
+    return urlFor(image as never).width(width).url();
+  } catch {
+    return "";
+  }
+}
+
+export async function generateStaticParams() {
+  const slugs = await sanityFetch<string[]>({
+    query: SERVICE_SLUGS_QUERY,
+    tags: ["services"],
+  });
+  return (slugs ?? []).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const service = services.find((s) => s.slug === slug);
-  if (!service) return {};
-  return {
-    title: `${service.name} · Atheliê Arquitetura`,
-    description: service.description,
-  };
+  const [service, settings] = await Promise.all([
+    sanityFetch<ServiceDetail | null>({
+      query: SERVICE_DETAIL_QUERY,
+      params: { slug },
+      tags: [`service:${slug}`, "services"],
+    }),
+    sanityFetch<SiteSettings | null>({
+      query: SITE_SETTINGS_QUERY,
+      tags: ["settings"],
+    }),
+  ]);
+  if (!service) return buildMetadata({ settings });
+  return buildMetadata({
+    pageSeo: service.seo,
+    pageTitle: service.name,
+    settings,
+    pathname: `/servicos/${slug}`,
+  });
 }
 
 export default async function ServiceDetailPage({ params }: Props) {
   const { slug } = await params;
-  const service = services.find((s) => s.slug === slug);
+  const sanityConfigured = !!projectId;
+
+  const [service, settings, index] = await Promise.all([
+    sanityFetch<ServiceDetail | null>({
+      query: SERVICE_DETAIL_QUERY,
+      params: { slug },
+      tags: [`service:${slug}`, "services"],
+    }),
+    sanityFetch<SiteSettings | null>({
+      query: SITE_SETTINGS_QUERY,
+      tags: ["settings"],
+    }),
+    sanityFetch<ServiceDetail[]>({
+      query: SERVICES_INDEX_QUERY,
+      tags: ["services"],
+    }),
+  ]);
+
+  if (sanityConfigured && !service) notFound();
   if (!service) notFound();
 
-  const idx = services.findIndex((s) => s.slug === slug);
-  const next = services[(idx + 1) % services.length];
+  const list = index ?? [];
+  const idx = list.findIndex((s) => s.slug === slug);
+  const next = list.length > 0 ? list[(idx + 1) % list.length] : null;
 
-  const related = (service.relatedProjectSlugs ?? [])
-    .map((sl) => projects.find((p) => p.slug === sl))
-    .filter((p): p is NonNullable<typeof p> => Boolean(p))
-    .slice(0, 3);
+  const related = (service.relatedProjects ?? []).slice(0, 3);
 
   return (
     <>
@@ -64,7 +113,6 @@ export default async function ServiceDetailPage({ params }: Props) {
             </svg>
             Todos os serviços
           </Link>
-          <DimensionLabel label={`Serviço ${service.ordinal} de 03`} />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-y-10 md:gap-x-10 items-end">
@@ -73,12 +121,16 @@ export default async function ServiceDetailPage({ params }: Props) {
             <h1 className="mt-6 font-display text-[clamp(2.75rem,8vw,7rem)] leading-[0.95] tracking-tight text-ink max-w-[14ch]">
               {service.name}.
             </h1>
-            <p className="mt-6 italic text-sage-dark text-xl md:text-2xl">
-              {service.tagline}
-            </p>
-            <p className="mt-8 max-w-lg text-lg text-ink-2">
-              {service.description}
-            </p>
+            {service.tagline && (
+              <p className="mt-6 italic text-sage-dark text-xl md:text-2xl">
+                {service.tagline}
+              </p>
+            )}
+            {service.description && (
+              <p className="mt-8 max-w-lg text-lg text-ink-2">
+                {service.description}
+              </p>
+            )}
           </div>
 
           <div className="md:col-span-4">
@@ -154,10 +206,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             </div>
             <ol className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-stone/30">
               {service.steps.map((step, i) => (
-                <li
-                  key={i}
-                  className="bg-bone-2 p-8 md:p-10 fade-up"
-                >
+                <li key={i} className="bg-bone-2 p-8 md:p-10 fade-up">
                   <div className="flex items-center justify-between">
                     <span className="font-display text-5xl text-ink/15 leading-none">
                       {String(i + 1).padStart(2, "0")}
@@ -167,9 +216,11 @@ export default async function ServiceDetailPage({ params }: Props) {
                   <h3 className="mt-8 font-display text-2xl text-ink">
                     {step.name}
                   </h3>
-                  <p className="mt-3 text-ink-2 leading-relaxed">
-                    {step.description}
-                  </p>
+                  {step.description && (
+                    <p className="mt-3 text-ink-2 leading-relaxed">
+                      {step.description}
+                    </p>
+                  )}
                 </li>
               ))}
             </ol>
@@ -191,9 +242,11 @@ export default async function ServiceDetailPage({ params }: Props) {
                 <h3 className="mt-6 font-display text-2xl md:text-3xl text-ink leading-tight">
                   {d.title}
                 </h3>
-                <p className="mt-4 text-ink-2 leading-relaxed">
-                  {d.description}
-                </p>
+                {d.description && (
+                  <p className="mt-4 text-ink-2 leading-relaxed">
+                    {d.description}
+                  </p>
+                )}
               </article>
             ))}
           </div>
@@ -221,31 +274,37 @@ export default async function ServiceDetailPage({ params }: Props) {
             <Hairline reveal />
           </div>
           <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-12">
-            {related.map((p) => (
-              <Link
-                key={p.slug}
-                href={`/projetos/${p.slug}`}
-                className="project-card group block fade-up"
-              >
-                <div className="project-image relative overflow-hidden bg-bone-2 aspect-[4/5]">
-                  <Image
-                    src={p.image}
-                    alt={p.imageAlt}
-                    fill
-                    sizes="(min-width: 768px) 30vw, 100vw"
-                    className="object-cover transition-transform duration-[1200ms] ease-[var(--ease-out-expo)] group-hover:scale-[1.04]"
-                  />
-                </div>
-                <div className="mt-4">
-                  <p className="font-mono-label text-stone">
-                    {categoryLabels[p.category]} · {p.year}
-                  </p>
-                  <h3 className="mt-2 font-display text-2xl leading-tight text-ink">
-                    {p.name}
-                  </h3>
-                </div>
-              </Link>
-            ))}
+            {related.map((p) => {
+              const src = safeImageUrl(p.image, 1200);
+              const categoryLabel = p.category?.name ?? "";
+              return (
+                <Link
+                  key={p.slug}
+                  href={`/projetos/${p.slug}`}
+                  className="project-card group block fade-up"
+                >
+                  <div className="project-image relative overflow-hidden bg-bone-2 aspect-[4/5]">
+                    {src && (
+                      <Image
+                        src={src}
+                        alt={p.imageAlt ?? p.name}
+                        fill
+                        sizes="(min-width: 768px) 30vw, 100vw"
+                        className="object-cover transition-transform duration-[1200ms] ease-[var(--ease-out-expo)] group-hover:scale-[1.04]"
+                      />
+                    )}
+                  </div>
+                  <div className="mt-4">
+                    <p className="font-mono-label text-stone">
+                      {categoryLabel} · {p.year ?? ""}
+                    </p>
+                    <h3 className="mt-2 font-display text-2xl leading-tight text-ink">
+                      {p.name}
+                    </h3>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </section>
       )}
@@ -270,9 +329,11 @@ export default async function ServiceDetailPage({ params }: Props) {
                     <dt className="font-display text-xl md:text-2xl text-ink">
                       {item.q}
                     </dt>
-                    <dd className="mt-3 text-ink-2 leading-relaxed">
-                      {item.a}
-                    </dd>
+                    {item.a && (
+                      <dd className="mt-3 text-ink-2 leading-relaxed">
+                        {item.a}
+                      </dd>
+                    )}
                   </div>
                 ))}
               </dl>
@@ -287,42 +348,59 @@ export default async function ServiceDetailPage({ params }: Props) {
           <h2 className="font-display text-[clamp(1.75rem,3.5vw,2.75rem)] leading-tight max-w-[18ch] reveal-word">
             <span>
               Pronta(o) para começar com o{" "}
-              <span className="italic text-sage">{service.name.toLowerCase()}</span>?
+              <span className="italic text-sage">
+                {service.name.toLowerCase()}
+              </span>
+              ?
             </span>
           </h2>
           <div className="flex flex-wrap items-center gap-4 md:justify-end fade-up">
-            <a
-              href={studio.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 rounded-full bg-bone px-7 py-3.5 text-sm tracking-wide text-ink transition-colors duration-500 hover:bg-sage hover:text-bone"
-            >
-              <span className="font-mono-label !tracking-[0.16em]">
-                Iniciar conversa
-              </span>
-              <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-                <path
-                  d="M1 7 H13 M8 2 L13 7 L8 12"
-                  stroke="currentColor"
-                  strokeWidth="1.4"
-                  fill="none"
-                />
-              </svg>
-            </a>
-            <Link
-              href={`/servicos/${next.slug}`}
-              className="pretty-link font-mono-label text-bone inline-flex items-center gap-2"
-            >
-              Próximo serviço: {next.name}
-              <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-                <path
-                  d="M1 7 H13 M8 2 L13 7 L8 12"
-                  stroke="currentColor"
-                  strokeWidth="1.4"
-                  fill="none"
-                />
-              </svg>
-            </Link>
+            {settings?.whatsapp && (
+              <a
+                href={settings.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-3 rounded-full bg-bone px-7 py-3.5 text-sm tracking-wide text-ink transition-colors duration-500 hover:bg-sage hover:text-bone"
+              >
+                <span className="font-mono-label !tracking-[0.16em]">
+                  Iniciar conversa
+                </span>
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M1 7 H13 M8 2 L13 7 L8 12"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    fill="none"
+                  />
+                </svg>
+              </a>
+            )}
+            {next && (
+              <Link
+                href={`/servicos/${next.slug}`}
+                className="pretty-link font-mono-label text-bone inline-flex items-center gap-2"
+              >
+                Próximo serviço: {next.name}
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M1 7 H13 M8 2 L13 7 L8 12"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    fill="none"
+                  />
+                </svg>
+              </Link>
+            )}
           </div>
         </div>
       </section>

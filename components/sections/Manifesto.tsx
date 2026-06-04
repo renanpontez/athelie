@@ -39,7 +39,7 @@ export function Manifesto({ label, body }: Props) {
                     return (
                       <span
                         key={`${bi}-${ci}-${wordIndex}`}
-                        className="manifesto-word inline-block opacity-30 me-[0.28em]"
+                        className="manifesto-word inline-block opacity-30 me-[0.38em]"
                       >
                         {word}
                       </span>

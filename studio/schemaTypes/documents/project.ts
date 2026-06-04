@@ -15,16 +15,9 @@ export const project = defineType({
     defineField({ name: "slug", type: "slug", group: "meta", options: { source: "name", maxLength: 96 }, validation: (r) => r.required() }),
     defineField({
       name: "category",
-      type: "string",
+      type: "reference",
+      to: [{ type: "projectCategory" }],
       group: "meta",
-      options: {
-        list: [
-          { title: "Residencial", value: "residencial" },
-          { title: "Comercial", value: "comercial" },
-          { title: "Corporativo", value: "corporativo" },
-        ],
-        layout: "radio",
-      },
       validation: (r) => r.required(),
     }),
     defineField({ name: "city", type: "string", group: "meta" }),
