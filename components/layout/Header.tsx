@@ -1,25 +1,45 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { cn } from "@/lib/utils";
 import { ArchIcon } from "@/components/ui/ArchIcon";
 import { MobileMenu } from "./MobileMenu";
-import { navigation, studio } from "@/lib/content";
+import { urlFor } from "@/sanity/lib/image";
+import type { Navigation, SiteSettings } from "@/sanity/types";
 
-// CSS custom property used by .nav-reveal for staggered delay
-const reveal = (i: number) =>
-  ({ "--reveal-i": i } as CSSProperties);
+const FALLBACK_NAV = [
+  { label: "Início", href: "/" },
+  { label: "Sobre", href: "/sobre" },
+  { label: "Serviços", href: "/servicos" },
+  { label: "Projetos", href: "/projetos" },
+  { label: "Contato", href: "/contato" },
+];
 
-// Active when the current pathname matches the link or is nested under it.
-// Root "/" is matched exactly so it doesn't light up on every page.
+const reveal = (i: number) => ({ "--reveal-i": i } as CSSProperties);
+
 function isNavActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(href + "/");
 }
 
-export function Header() {
+function safeLogoUrl(logo: Navigation["logo"]): string {
+  if (!logo || !logo.asset) return "";
+  try {
+    return urlFor(logo).width(240).url();
+  } catch {
+    return "";
+  }
+}
+
+type Props = {
+  navigation?: Navigation | null;
+  settings?: SiteSettings | null;
+};
+
+export function Header({ navigation, settings }: Props) {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname() ?? "/";
 
@@ -29,6 +49,18 @@ export function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const links =
+    navigation?.primary && navigation.primary.length > 0
+      ? navigation.primary
+      : FALLBACK_NAV;
+
+  const companyName =
+    navigation?.companyName ?? settings?.name ?? "Atheliê Arquitetura";
+  const whatsapp = settings?.whatsapp;
+
+  const logoUrl = useMemo(() => safeLogoUrl(navigation?.logo), [navigation?.logo]);
+  const logoAlt = navigation?.logo?.alt ?? companyName;
 
   return (
     <header
@@ -43,19 +75,29 @@ export function Header() {
           <Link
             href="/"
             className="nav-reveal group flex items-center gap-3"
-            aria-label={studio.name}
+            aria-label={companyName}
             style={reveal(1)}
           >
-            <ArchIcon className="h-7 w-auto text-ink transition-transform duration-700 group-hover:-translate-y-0.5" />
+            {logoUrl ? (
+              <Image
+                src={logoUrl}
+                alt={logoAlt}
+                width={28}
+                height={28}
+                className="h-7 w-auto transition-transform duration-700 group-hover:-translate-y-0.5"
+                priority
+              />
+            ) : (
+              <ArchIcon className="h-7 w-auto text-ink transition-transform duration-700 group-hover:-translate-y-0.5" />
+            )}
             <span className="font-mono-label !text-[0.7rem] text-ink">
-              Atheliê · Arquitetura
+              {companyName}
             </span>
           </Link>
 
-          {/* right group: nav + conversar pill */}
           <div className="hidden md:flex items-center gap-10">
             <nav className="flex items-center gap-8" aria-label="primary">
-              {navigation.map((item, i) => {
+              {links.map((item, i) => {
                 const active = isNavActive(pathname, item.href);
                 return (
                   <Link
@@ -76,31 +118,33 @@ export function Header() {
               })}
             </nav>
 
-            <a
-              href={studio.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-reveal inline-flex items-center gap-2 rounded-full border border-ink/15 px-4 py-2 font-mono-label text-ink transition-colors duration-500 hover:border-ink hover:bg-ink hover:text-bone"
-              style={reveal(navigation.length + 2)}
-            >
-              Conversar
-              <svg
-                width="10"
-                height="10"
-                viewBox="0 0 10 10"
-                aria-hidden="true"
+            {whatsapp && (
+              <a
+                href={whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-reveal inline-flex items-center gap-2 rounded-full border border-ink/15 px-4 py-2 font-mono-label text-ink transition-colors duration-500 hover:border-ink hover:bg-ink hover:text-bone"
+                style={reveal(links.length + 2)}
               >
-                <path
-                  d="M1 5 H9 M6 2 L9 5 L6 8"
-                  stroke="currentColor"
-                  strokeWidth="1.2"
-                  fill="none"
-                />
-              </svg>
-            </a>
+                Conversar
+                <svg
+                  width="10"
+                  height="10"
+                  viewBox="0 0 10 10"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M1 5 H9 M6 2 L9 5 L6 8"
+                    stroke="currentColor"
+                    strokeWidth="1.2"
+                    fill="none"
+                  />
+                </svg>
+              </a>
+            )}
           </div>
 
-          <MobileMenu />
+          <MobileMenu navigation={navigation} settings={settings} />
         </div>
       </div>
     </header>

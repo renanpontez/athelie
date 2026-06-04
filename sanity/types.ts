@@ -7,13 +7,18 @@ import type { Image as SanityImage } from "sanity";
 
 export type SanityRef = { _ref: string; _type: "reference" };
 
-export type ProjectCategory = "residencial" | "comercial" | "corporativo";
+export type ProjectCategory = {
+  _id?: string;
+  name: string;
+  slug?: string;
+  order?: number;
+};
 
 export type ProjectCard = {
   _id: string;
   name: string;
   slug: string;
-  category: ProjectCategory;
+  category?: ProjectCategory;
   city?: string;
   year?: number;
   area?: string;
@@ -25,7 +30,7 @@ export type ProjectCard = {
 
 export type ProjectDetail = ProjectCard & {
   description?: string;
-  gallery?: { image: SanityImage; alt?: string }[];
+  gallery?: { src?: string; image?: SanityImage; alt?: string }[];
   seo?: { title?: string; description?: string; image?: SanityImage };
 };
 
@@ -33,17 +38,19 @@ export type ServiceSummary = {
   _id: string;
   name: string;
   slug: string;
+  ordinal?: string;
   tagline?: string;
   description?: string;
+  includes?: string[];
 };
 
 export type ServiceDetail = ServiceSummary & {
   forWho?: string[];
-  includes?: string[];
   steps?: { name: string; description?: string }[];
   differentiators?: { title: string; description?: string }[];
   faq?: { q: string; a?: string }[];
   relatedProjects?: ProjectCard[];
+  seo?: { title?: string; description?: string; image?: SanityImage };
 };
 
 export type Founder = {
@@ -151,14 +158,95 @@ export type ContactCtaSection = {
   ctaSecondary?: CTA;
 };
 
+export type PageIntroSection = {
+  _type: "pageIntroSection";
+  _key: string;
+  label?: string;
+  headline?: RichHeadline;
+  body?: string;
+};
+
+export type ServicesDetailedSection = {
+  _type: "servicesDetailedSection";
+  _key: string;
+  label?: string;
+  services?: ServiceSummary[];
+};
+
+export type FoundersIntroSection = {
+  _type: "foundersIntroSection";
+  _key: string;
+  label?: string;
+  heading?: RichHeadline;
+  body?: string;
+  portrait?: SanityImage;
+  captionLeft?: string;
+  captionCenter?: string;
+  captionRight?: string;
+};
+
+export type FounderBiosSection = {
+  _type: "founderBiosSection";
+  _key: string;
+  label?: string;
+  founders?: Founder[];
+};
+
+export type StudioCitiesSection = {
+  _type: "studioCitiesSection";
+  _key: string;
+  label?: string;
+  heading?: RichHeadline;
+  body?: string;
+  cities?: string[];
+};
+
+export type ProjectsByCategorySection = {
+  _type: "projectsByCategorySection";
+  _key: string;
+  label?: string;
+  showAnchorNav?: boolean;
+  categories?: (ProjectCategory & { projects?: ProjectCard[] })[];
+};
+
+export type ContactChannelsSection = {
+  _type: "contactChannelsSection";
+  _key: string;
+  label?: string;
+  channels?: {
+    label: string;
+    value?: string;
+    href?: string;
+    external?: boolean;
+    lowercase?: boolean;
+  }[];
+};
+
+export type ContactFormSection = {
+  _type: "contactFormSection";
+  _key: string;
+  label?: string;
+  heading?: RichHeadline;
+  body?: string;
+  sidebar?: { term: string; value: string }[];
+};
+
 export type Section =
   | HeroSection
+  | PageIntroSection
   | ManifestoSection
   | FeaturedProjectsSection
   | ServicesSection
+  | ServicesDetailedSection
   | FoundersSection
+  | FoundersIntroSection
+  | FounderBiosSection
   | ProcessSection
   | PillarsSection
+  | StudioCitiesSection
+  | ProjectsByCategorySection
+  | ContactChannelsSection
+  | ContactFormSection
   | ContactCtaSection;
 
 /* ---------- documents ---------- */
@@ -176,9 +264,16 @@ export type SiteSettings = {
   whatsapp?: string;
   instagram?: string;
   instagramHandle?: string;
+  defaultSeo?: {
+    title?: string;
+    description?: string;
+    image?: SanityImage;
+  };
 };
 
 export type Navigation = {
+  companyName?: string;
+  logo?: SanityImage & { alt?: string };
   primary?: { label: string; href: string }[];
   footer?: { label: string; href: string }[];
 };

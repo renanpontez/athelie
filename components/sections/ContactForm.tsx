@@ -1,10 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { studio } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
-const PHONE_E164 = "5585991455979";
+const PHONE_E164_FALLBACK = "5585991455979";
 
 const projectTypes = [
   "Residencial",
@@ -15,7 +14,14 @@ const projectTypes = [
 
 const services = ["Consultoria", "Projeto Completo", "Execução", "Ainda não sei"] as const;
 
-export function ContactForm() {
+type Props = {
+  whatsappUrl?: string;
+  phoneE164?: string;
+};
+
+export function ContactForm({ whatsappUrl, phoneE164 }: Props = {}) {
+  const targetPhone = phoneE164 ?? PHONE_E164_FALLBACK;
+  const fallbackWhatsapp = whatsappUrl ?? `https://wa.me/${targetPhone}`;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -39,7 +45,7 @@ export function ContactForm() {
     ]
       .filter(Boolean)
       .join("\n");
-    const url = `https://wa.me/${PHONE_E164}?text=${encodeURIComponent(text)}`;
+    const url = `https://wa.me/${targetPhone}?text=${encodeURIComponent(text)}`;
     setSubmitted(true);
     window.open(url, "_blank", "noopener,noreferrer");
   };
@@ -200,7 +206,7 @@ export function ContactForm() {
         <p className="md:col-span-2 font-mono-label text-sage-dark">
           Tudo certo. Se o WhatsApp não abriu automaticamente,{" "}
           <a
-            href={studio.whatsapp}
+            href={fallbackWhatsapp}
             target="_blank"
             rel="noopener noreferrer"
             className="underline"

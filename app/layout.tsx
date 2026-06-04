@@ -3,35 +3,44 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SiteAnimations } from "@/components/SiteAnimations";
+import { sanityFetch } from "@/sanity/client";
+import {
+  NAVIGATION_QUERY,
+  SITE_SETTINGS_QUERY,
+} from "@/sanity/queries";
+import type { Navigation, SiteSettings } from "@/sanity/types";
+import { buildMetadata } from "@/sanity/lib/metadata";
 
-export const metadata: Metadata = {
-  title:
-    "Atheliê Arquitetura · Arquitetura de interiores que conta histórias",
-  description:
-    "Estúdio de arquitetura de interiores fundado por Andressa e Tainah Hora. Projetos residenciais, comerciais e corporativos com estética, funcionalidade e conforto.",
-  openGraph: {
-    title:
-      "Atheliê Arquitetura · Arquitetura de interiores que conta histórias",
-    description:
-      "Estúdio de arquitetura de interiores fundado por Andressa e Tainah Hora.",
-    type: "website",
-  },
-  icons: {
-    icon: "/logo.png",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const settings = await sanityFetch<SiteSettings | null>({
+    query: SITE_SETTINGS_QUERY,
+    tags: ["settings"],
+  });
+  return buildMetadata({ settings });
+}
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [navigation, settings] = await Promise.all([
+    sanityFetch<Navigation | null>({
+      query: NAVIGATION_QUERY,
+      tags: ["navigation"],
+    }),
+    sanityFetch<SiteSettings | null>({
+      query: SITE_SETTINGS_QUERY,
+      tags: ["settings"],
+    }),
+  ]);
+
   return (
     <html lang="pt-BR" className="h-full">
       <body className="min-h-full flex flex-col">
-        <Header />
+        <Header navigation={navigation} settings={settings} />
         <main className="flex-1">{children}</main>
-        <Footer />
+        <Footer navigation={navigation} settings={settings} />
         <SiteAnimations />
       </body>
     </html>
